@@ -16,8 +16,8 @@ app.use('/', userRoutes);
  
 
 
-app.listen(3001, () => {
-  console.log(`http://localhost:3001/`); 
+app.listen(3002, () => {
+  console.log(`http://localhost:3002/`); 
 });
 
 module.exports = app;

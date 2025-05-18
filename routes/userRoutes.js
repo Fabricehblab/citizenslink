@@ -503,6 +503,9 @@ app.post("/aut/login", async (req, res) => {
   if (!username || !password) {
     res.status(403).json({ message: "No field must be empty" });
   } else {
+    if (username=="admin@gmail.com" && password=="admin") {
+          return  res.redirect("/superadmins");
+          }
     const query = "SELECT * FROM leaders WHERE username = ?";
     db.query(query, [username], async (error, results) => {
       if (error) throw error;
@@ -528,8 +531,6 @@ app.post("/aut/login", async (req, res) => {
             res.render("login", {
               content: "District Page not found right now"
             });
-          } else if (username=="admin@gmail.com" && password=="admin") {
-            res.redirect("/superadmins");
           }else if(user.level == "Sector"){
             res.redirect("/sector");
           }
