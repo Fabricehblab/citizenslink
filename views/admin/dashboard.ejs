@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from demo.tailadmin.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 07 Oct 2024 17:53:07 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        Citizen Link
+    </title>
+    <link rel="icon" href="assets/images/favicon.png">
+    <link href="assets/src/style.css" rel="stylesheet">
+    <script src="assets/src/tailwind.js"></script>
+    <script nonce="ec9cd9f6-0a24-4404-90ff-d7d0e13fe1e6">
+        try {
+            (function(w, d) {
+                ! function(j, k, l, m) {
+                    if (j.zaraz) console.error("zaraz is loaded twice");
+                    else {
+                        j[l] = j[l] || {};
+                        j[l].executed = [];
+                        j.zaraz = {
+                            deferred: [],
+                            listeners: []
+                        };
+                        j.zaraz._v = "5808";
+                        j.zaraz._n = "ec9cd9f6-0a24-4404-90ff-d7d0e13fe1e6";
+                        j.zaraz.q = [];
+                        j.zaraz._f = function(n) {
+                            return async function() {
+                                var o = Array.prototype.slice.call(arguments);
+                                j.zaraz.q.push({
+                                    m: n,
+                                    a: o
+                                })
+                            }
+                        };
+                        for (const p of ["track", "set", "debug"]) j.zaraz[p] = j.zaraz._f(p);
+                        j.zaraz.init = () => {
+                            var q = k.getElementsByTagName(m)[0],
+                                r = k.createElement(m),
+                                s = k.getElementsByTagName("title")[0];
+                            s && (j[l].t = k.getElementsByTagName("title")[0].text);
+                            j[l].x = Math.random();
+                            j[l].w = j.screen.width;
+                            j[l].h = j.screen.height;
+                            j[l].j = j.innerHeight;
+                            j[l].e = j.innerWidth;
+                            j[l].l = j.location.href;
+                            j[l].r = k.referrer;
+                            j[l].k = j.screen.colorDepth;
+                            j[l].n = k.characterSet;
+                            j[l].o = (new Date).getTimezoneOffset();
+                            if (j.dataLayer)
+                                for (const t of Object.entries(Object.entries(dataLayer).reduce(((u, v) => ({
+                                        ...u[1],
+                                        ...v[1]
+                                    })), {}))) zaraz.set(t[0], t[1], {
+                                    scope: "page"
+                                });
+                            j[l].q = [];
+                            for (; j.zaraz.q.length;) {
+                                const w = j.zaraz.q.shift();
+                                j[l].q.push(w)
+                            }
+                            r.defer = !0;
+                            for (const x of [localStorage, sessionStorage]) Object.keys(x || {}).filter((z => z.startsWith("_zaraz_"))).forEach((y => {
+                                try {
+                                    j[l]["z_" + y.slice(7)] = JSON.parse(x.getItem(y))
+                                } catch {
+                                    j[l]["z_" + y.slice(7)] = x.getItem(y)
+                                }
+                            }));
+                            r.referrerPolicy = "origin";
+                            r.src = "cdn-cgi/zaraz/sd0d9.js?z=" + btoa(encodeURIComponent(JSON.stringify(j[l])));
+                            q.parentNode.insertBefore(r, q)
+                        };
+                        ["complete", "interactive"].includes(k.readyState) ? zaraz.init() : j.addEventListener("DOMContentLoaded", zaraz.init)
+                    }
+                }(w, d, "zarazData", "script");
+                window.zaraz._p = async mP => new Promise((mQ => {
+                    if (mP) {
+                        mP.e && mP.e.forEach((mR => {
+                            try {
+                                const mS = d.querySelector("script[nonce]"),
+                                    mT = mS?.nonce || mS?.getAttribute("nonce"),
+                                    mU = d.createElement("script");
+                                mT && (mU.nonce = mT);
+                                mU.innerHTML = mR;
+                                mU.onload = () => {
+                                    d.head.removeChild(mU)
+                                };
+                                d.head.appendChild(mU)
+                            } catch (mV) {
+                                console.error(`Error executing script: ${mR}\n`, mV)
+                            }
+                        }));
+                        Promise.allSettled((mP.f || []).map((mW => fetch(mW[0], mW[1]))))
+                    }
+                    mQ()
+                }));
+                zaraz._p({
+                    "e": ["(function(w,d){})(window,document)"]
+                });
+            })(window, document)
+        } catch (e) {
+            throw fetch("/cdn-cgi/zaraz/t"), e;
+        };
+
+
+
+        // fetch active users
+        // fetch("http://localhost:3000/admin/activeAccounts")
+        fetch("https://citizenlink.onrender.com/admin/activeAccounts")
+        .then(response=>response.json())
+        .then(data=>{       
+            let datas=data.length;
+            let Activatedaccounts=document.getElementById("Activatedaccounts").innerHTML=datas;
+        })
+        .catch(error=>console.error())
+  
+
+
+</script>
+</head>
+
+<body
+    x-data="{ page: 'ecommerce', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
+    x-init="
+         darkMode = JSON.parse(localStorage.getItem('darkMode'));
+         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+    :class="{'dark text-bodydark bg-boxdark-2': darkMode === true}">
+    <!-- ===== Preloader Start ===== -->
+    <div
+        x-show="loaded"
+        x-init="window.addEventListener('DOMContentLoaded', () => {setTimeout(() => loaded = false, 500)})"
+        class="fixed left-0 top-0 z-999999 flex h-screen w-screen items-center justify-center bg-white dark:bg-black">
+        <div
+            class="h-16 w-16 animate-spin rounded-full border-4 border-solid border-primary border-t-transparent"></div>
+    </div>
+
+    <!-- ===== Preloader End ===== -->
+
+    <!-- ===== Page Wrapper Start ===== -->
+    <div class="flex h-screen overflow-hidden">
+        <!-- ===== Sidebar Start ===== -->
+        <aside
+            :class="sidebarToggle ? 'translate-x-0' : '-translate-x-full'"
+            class="absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0"
+            @click.outside="sidebarToggle = false">
+            <!-- SIDEBAR HEADER -->
+            <div class="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
+                <a
+                    class=" text-xl font-bold "
+                    href="/">
+                    CitizenLink
+                    <!-- <img class=" w-32" src="{{asset(path:'assets/images/favicon.png')}}" alt="Logo" /> -->
+                </a>
+
+                <button
+                    class="block lg:hidden"
+                    @click.stop="sidebarToggle = !sidebarToggle">
+                    <svg
+                        class="fill-current"
+                        width="20"
+                        height="18"
+                        viewBox="0 0 20 18"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M19 8.175H2.98748L9.36248 1.6875C9.69998 1.35 9.69998 0.825 9.36248 0.4875C9.02498 0.15 8.49998 0.15 8.16248 0.4875L0.399976 8.3625C0.0624756 8.7 0.0624756 9.225 0.399976 9.5625L8.16248 17.4375C8.31248 17.5875 8.53748 17.7 8.76248 17.7C8.98748 17.7 9.17498 17.625 9.36248 17.475C9.69998 17.1375 9.69998 16.6125 9.36248 16.275L3.02498 9.8625H19C19.45 9.8625 19.825 9.4875 19.825 9.0375C19.825 8.55 19.45 8.175 19 8.175Z"
+                            fill="" />
+                    </svg>
+                </button>
+            </div>
+            <!-- SIDEBAR HEADER -->
+
+            <div
+                class="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
+                <!-- Sidebar Menu -->
+              <%-include('nav.ejs') %>
+                <!-- Sidebar Menu -->
+
+                <!-- Promo Box -->
+
+                <!-- Promo Box -->
+            </div>
+        </aside>
+
+        <!-- ===== Sidebar End ===== -->
+
+        <!-- ===== Content Area Start ===== -->
+        <div
+            class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
+            <!-- ===== Header Start ===== -->
+            <%-include('header.ejs')%>
+
+
+            <!-- ===== Header End ===== -->
+
+            <!-- ===== Main Content Start ===== -->
+            <main>
+                <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+                    <div
+                        class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6 xl:grid-cols-4 2xl:gap-7.5">
+                        <!-- Card Item Start -->
+                        <div
+                            class="rounded-sm border border-stroke bg-white px-7.5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark">
+                            <div
+                                class="flex h-11.5 w-11.5 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4">
+                                <svg
+                                    class="fill-primary fill-black  dark:fill-white"
+                                    width="22"
+                                    height="16"
+                                    viewBox="0 0 22 16"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M11 15.1156C4.19376 15.1156 0.825012 8.61876 0.687512 8.34376C0.584387 8.13751 0.584387 7.86251 0.687512 7.65626C0.825012 7.38126 4.19376 0.918762 11 0.918762C17.8063 0.918762 21.175 7.38126 21.3125 7.65626C21.4156 7.86251 21.4156 8.13751 21.3125 8.34376C21.175 8.61876 17.8063 15.1156 11 15.1156ZM2.26876 8.00001C3.02501 9.27189 5.98126 13.5688 11 13.5688C16.0188 13.5688 18.975 9.27189 19.7313 8.00001C18.975 6.72814 16.0188 2.43126 11 2.43126C5.98126 2.43126 3.02501 6.72814 2.26876 8.00001Z"
+                                        fill="" />
+                                    <path
+                                        d="M11 10.9219C9.38438 10.9219 8.07812 9.61562 8.07812 8C8.07812 6.38438 9.38438 5.07812 11 5.07812C12.6156 5.07812 13.9219 6.38438 13.9219 8C13.9219 9.61562 12.6156 10.9219 11 10.9219ZM11 6.625C10.2437 6.625 9.625 7.24375 9.625 8C9.625 8.75625 10.2437 9.375 11 9.375C11.7563 9.375 12.375 8.75625 12.375 8C12.375 7.24375 11.7563 6.625 11 6.625Z"
+                                        fill="" />
+                                </svg>
+                            </div>
+
+                            <div class="mt-4 flex items-end justify-between">
+                                <div>
+                                    
+                                        <%
+                                        if(message){
+                                            %>
+                                      <h4
+                                        class="text-title-md font-bold text-black dark:text-slate-400"> 
+                                        <%= message.length%>
+                                        </h4>
+
+                                            <%}
+                                        
+                                        %>
+                                    
+                                    <span class="text-sm font-medium">Total Accounts</span>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <!-- Card Item End -->
+
+                        <!-- Card Item Start -->
+                        <div
+                            class="rounded-sm border border-stroke bg-white px-7.5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark">
+                            <div
+                                class="flex h-11.5 w-11.5 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4">
+                                <img src="assets/images/activeaccount.png" alt="Logo" />
+
+                            </div>
+
+                          
+
+
+                            <div class="mt-4 flex items-end justify-between">
+                                <div>
+                                    <h4 id="Activatedaccounts"
+                                        class="text-title-md font-bold text-black dark:text-slate-400">
+                                        
+                                    </h4>
+                                    <span class="text-sm font-medium">Activated accounts</span>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <!-- Card Item End -->
+
+                        <!-- Card Item Start -->
+                        <div
+                            class="rounded-sm border border-stroke bg-white px-7.5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark">
+                            <div
+                                class="flex h-11.5 w-11.5 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4">
+                                <div
+                                    class="flex h-11.5 w-11.5 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4">
+                                    <img src="assets/images/disactivatedAccounts.png" alt="Logo" />
+
+                                </div>
+                            </div>
+
+                            <div class="mt-4 flex items-end justify-between">
+                                <div>
+                                    <h4
+                                        class="text-title-md font-bold text-black dark:text-slate-400">
+                                        1
+                                    </h4>
+                                    <span class="text-sm font-medium">Disactivated Accounts</span>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <!-- Card Item End -->
+
+                        <!-- Card Item Start -->
+                        <div
+                            class="rounded-sm border border-stroke bg-white px-7.5 py-6 shadow-default dark:border-strokedark dark:bg-boxdark">
+                            <div
+                                class="flex h-11.5 w-11.5 items-center justify-center rounded-full bg-meta-2 dark:bg-meta-4">
+                                <svg
+                                    class="fill-primary dark:fill-white"
+                                    width="22"
+                                    height="18"
+                                    viewBox="0 0 22 18"
+                                    fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M7.18418 8.03751C9.31543 8.03751 11.0686 6.35313 11.0686 4.25626C11.0686 2.15938 9.31543 0.475006 7.18418 0.475006C5.05293 0.475006 3.2998 2.15938 3.2998 4.25626C3.2998 6.35313 5.05293 8.03751 7.18418 8.03751ZM7.18418 2.05626C8.45605 2.05626 9.52168 3.05313 9.52168 4.29063C9.52168 5.52813 8.49043 6.52501 7.18418 6.52501C5.87793 6.52501 4.84668 5.52813 4.84668 4.29063C4.84668 3.05313 5.9123 2.05626 7.18418 2.05626Z"
+                                        fill="" />
+                                    <path
+                                        d="M15.8124 9.6875C17.6687 9.6875 19.1468 8.24375 19.1468 6.42188C19.1468 4.6 17.6343 3.15625 15.8124 3.15625C13.9905 3.15625 12.478 4.6 12.478 6.42188C12.478 8.24375 13.9905 9.6875 15.8124 9.6875ZM15.8124 4.7375C16.8093 4.7375 17.5999 5.49375 17.5999 6.45625C17.5999 7.41875 16.8093 8.175 15.8124 8.175C14.8155 8.175 14.0249 7.41875 14.0249 6.45625C14.0249 5.49375 14.8155 4.7375 15.8124 4.7375Z"
+                                        fill="" />
+                                    <path
+                                        d="M15.9843 10.0313H15.6749C14.6437 10.0313 13.6468 10.3406 12.7874 10.8563C11.8593 9.61876 10.3812 8.79376 8.73115 8.79376H5.67178C2.85303 8.82814 0.618652 11.0625 0.618652 13.8469V16.3219C0.618652 16.975 1.13428 17.4906 1.7874 17.4906H20.2468C20.8999 17.4906 21.4499 16.9406 21.4499 16.2875V15.4625C21.4155 12.4719 18.9749 10.0313 15.9843 10.0313ZM2.16553 15.9438V13.8469C2.16553 11.9219 3.74678 10.3406 5.67178 10.3406H8.73115C10.6562 10.3406 12.2374 11.9219 12.2374 13.8469V15.9438H2.16553V15.9438ZM19.8687 15.9438H13.7499V13.8469C13.7499 13.2969 13.6468 12.7469 13.4749 12.2313C14.0937 11.7844 14.8499 11.5781 15.6405 11.5781H15.9499C18.0812 11.5781 19.8343 13.3313 19.8343 15.4625V15.9438H19.8687Z"
+                                        fill="" />
+                                </svg>
+                            </div>
+
+                            <div class="mt-4 flex items-end justify-between">
+                                <div>
+                                    <h4
+                                        class="text-title-md font-bold text-black dark:text-slate-400">
+                                        0
+                                    </h4>
+                                    <span class="text-sm font-medium">Padding Accounts</span>
+                                </div>
+
+
+                            </div>
+                        </div>
+                        <!-- Card Item End -->
+                    </div>
+
+
+                  
+
+                    <div class="w-full overflow-x-auto mt-14">
+                      <div class="min-w-[1170px]">
+                        <!-- table header start -->
+                        <div
+                          class="grid grid-cols-12 rounded-t-[10px] bg-primary px-5 py-4 lg:px-7.5 2xl:px-11"
+                        >
+                          <div class="col-span-3">
+                            <h5 class="font-medium text-white">Email</h5>
+                          </div>
+                    
+                          <div class="col-span-3">
+                            <h5 class="font-medium text-white">Province</h5>
+                          </div>
+                    
+                          <div class="col-span-3">
+                            <h5 class="font-medium text-white">Distict</h5>
+                          </div>
+                    
+                          <div class="col-span-2">
+                            <h5 class="font-medium text-white">Level</h5>
+                          </div>
+                    
+                          <div class="col-span-1">
+                            <h5 class="text-right font-medium text-white">Edit</h5>
+                          </div>
+                        </div>
+                        <!-- table header end -->
+                    
+                        <!-- table body start -->
+                        
+                        <div class="bg-white dark:bg-boxdark rounded-b-[10px] z-90">
+                          <!-- table row item -->
+                       
+                         
+          
+
+
+
+                          <% if(message){
+
+                            %>
+       
+                            <%
+                            message.forEach(Details => {
+                            %>
+
+
+
+
+                          <div
+                          class="grid grid-cols-12 border-t border-[#EEEEEE] px-5 py-4 dark:border-strokedark lg:px-7.5 2xl:px-11"
+                        >
+                          <div class="col-span-3">
+                            <p class="text-[#637381] dark:text-bodydark">
+                                <%=Details.username%>
+                                </p>
+                          </div>
+                  
+                          <div class="col-span-3">
+                            <p class="text-[#637381] dark:text-bodydark">                                <%=Details.province%>
+                            </p>
+                          </div>
+                  
+                          <div class="col-span-3">
+                            <p class="text-[#637381] dark:text-bodydark">   <%=Details.district%></p>
+                          </div>
+                  
+                  
+                          <div class="col-span-2">
+                            <p class="text-[#637381] dark:text-bodydark">   <%=Details.level%></p>
+                          </div>
+                  
+                          <div class="col-span-1 relative">
+                            <div x-data="{ isOpen: false }">
+
+                              <button
+                                @click.prevent="isOpen = !isOpen"
+                                class="float-right inline-flex items-center gap-1.5 rounded-md px-3 py-1.5 text-sm text-black shadow-11 hover:text-primary dark:bg-meta-4 dark:text-slate-400 dark:shadow-none"
+                              >
+                                Action
+                                <svg
+                                  class="fill-current"
+                                  width="16"
+                                  height="16"
+                                  viewBox="0 0 16 16"
+                                  fill="none"
+                                  xmlns="http://www.w3.org/2000/svg"
+                                >
+                                  <path
+                                    d="M8.00039 11.4C7.85039 11.4 7.72539 11.35 7.60039 11.25L1.85039 5.60005C1.62539 5.37505 1.62539 5.02505 1.85039 4.80005C2.07539 4.57505 2.42539 4.57505 2.65039 4.80005L8.00039 10.025L13.3504 4.75005C13.5754 4.52505 13.9254 4.52505 14.1504 4.75005C14.3754 4.97505 14.3754 5.32505 14.1504 5.55005L8.40039 11.2C8.27539 11.325 8.15039 11.4 8.00039 11.4Z"
+                                    fill=""
+                                  />
+                                </svg>
+                              </button>
+                  
+                              <div
+                                x-show="isOpen"
+                                @click.outside="isOpen = false"
+                                class="absolute right-0 bottom-full z-1 mb-1 w-full max-w-39.5 rounded-[5px] bg-white py-2.5 shadow-12 dark:bg-boxdark mt-10"
+                              >
+                              <a href="/edit?administrationId=<%=Details.administrationId%>">
+                                  <button
+                                  class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4"
+                                >
+                                  Edit
+                                </button>
+                              </a>
+
+                              <a href="/edit?administrationId=<%=Details.administrationId%>">
+                                <button
+                                  class="flex w-full px-4 py-2 text-sm hover:bg-whiter hover:text-primary dark:hover:bg-meta-4"
+                                >
+                                  Delete
+                                </button>
+                              </a>
+                             
+                             
+                               
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+ <% });
+                            %>
+                            <%
+                           }
+                            %>
+       
+       
+
+
+
+
+
+
+
+
+                        </div>
+                        <!-- table body end -->
+                      </div>
+                    </div>
+                    
+
+
+
+
+
+                </div>
+            </main>
+            <!-- ===== Main Content End ===== -->
+        </div>
+        <!-- ===== Content Area End ===== -->
+    </div>
+    <!-- ===== Page Wrapper End ===== -->
+
+
+
+    <script defer src="assets/src/bundle.js"></script>
+    <script defer src="assets/src/static.js"></script>
+
+    </script>
+</body>
+
+<!-- Mirrored from demo.tailadmin.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 07 Oct 2024 17:53:54 GMT -->
+
+</html>

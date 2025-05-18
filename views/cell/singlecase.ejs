@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from demo.tailadmin.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 07 Oct 2024 17:53:07 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        Citizen Link
+    </title>
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <link href="../../assets/src/style.css" rel="stylesheet">
+    <script src="../../assets/src/tailwind.js"></script>
+    <script nonce="ec9cd9f6-0a24-4404-90ff-d7d0e13fe1e6">
+        try {
+            (function (w, d) {
+                ! function (j, k, l, m) {
+                    if (j.zaraz) console.error("zaraz is loaded twice");
+                    else {
+                        j[l] = j[l] || {};
+                        j[l].executed = [];
+                        j.zaraz = {
+                            deferred: [],
+                            listeners: []
+                        };
+                        j.zaraz._v = "5808";
+                        j.zaraz._n = "ec9cd9f6-0a24-4404-90ff-d7d0e13fe1e6";
+                        j.zaraz.q = [];
+                        j.zaraz._f = function (n) {
+                            return async function () {
+                                var o = Array.prototype.slice.call(arguments);
+                                j.zaraz.q.push({
+                                    m: n,
+                                    a: o
+                                })
+                            }
+                        };
+                        for (const p of ["track", "set", "debug"]) j.zaraz[p] = j.zaraz._f(p);
+                        j.zaraz.init = () => {
+                            var q = k.getElementsByTagName(m)[0],
+                                r = k.createElement(m),
+                                s = k.getElementsByTagName("title")[0];
+                            s && (j[l].t = k.getElementsByTagName("title")[0].text);
+                            j[l].x = Math.random();
+                            j[l].w = j.screen.width;
+                            j[l].h = j.screen.height;
+                            j[l].j = j.innerHeight;
+                            j[l].e = j.innerWidth;
+                            j[l].l = j.location.href;
+                            j[l].r = k.referrer;
+                            j[l].k = j.screen.colorDepth;
+                            j[l].n = k.characterSet;
+                            j[l].o = (new Date).getTimezoneOffset();
+                            if (j.dataLayer)
+                                for (const t of Object.entries(Object.entries(dataLayer).reduce(((u, v) => ({
+                                    ...u[1],
+                                    ...v[1]
+                                })), {}))) zaraz.set(t[0], t[1], {
+                                    scope: "page"
+                                });
+                            j[l].q = [];
+                            for (; j.zaraz.q.length;) {
+                                const w = j.zaraz.q.shift();
+                                j[l].q.push(w)
+                            }
+                            r.defer = !0;
+                            for (const x of [localStorage, sessionStorage]) Object.keys(x || {}).filter((z => z.startsWith("_zaraz_"))).forEach((y => {
+                                try {
+                                    j[l]["z_" + y.slice(7)] = JSON.parse(x.getItem(y))
+                                } catch {
+                                    j[l]["z_" + y.slice(7)] = x.getItem(y)
+                                }
+                            }));
+                            r.referrerPolicy = "origin";
+                            r.src = "cdn-cgi/zaraz/sd0d9.js?z=" + btoa(encodeURIComponent(JSON.stringify(j[l])));
+                            q.parentNode.insertBefore(r, q)
+                        };
+                        ["complete", "interactive"].includes(k.readyState) ? zaraz.init() : j.addEventListener("DOMContentLoaded", zaraz.init)
+                    }
+                }(w, d, "zarazData", "script");
+                window.zaraz._p = async mP => new Promise((mQ => {
+                    if (mP) {
+                        mP.e && mP.e.forEach((mR => {
+                            try {
+                                const mS = d.querySelector("script[nonce]"),
+                                    mT = mS?.nonce || mS?.getAttribute("nonce"),
+                                    mU = d.createElement("script");
+                                mT && (mU.nonce = mT);
+                                mU.innerHTML = mR;
+                                mU.onload = () => {
+                                    d.head.removeChild(mU)
+                                };
+                                d.head.appendChild(mU)
+                            } catch (mV) {
+                                console.error(`Error executing script: ${mR}\n`, mV)
+                            }
+                        }));
+                        Promise.allSettled((mP.f || []).map((mW => fetch(mW[0], mW[1]))))
+                    }
+                    mQ()
+                }));
+                zaraz._p({
+                    "e": ["(function(w,d){})(window,document)"]
+                });
+            })(window, document)
+        } catch (e) {
+            throw fetch("/cdn-cgi/zaraz/t"), e;
+        };
+
+        // fetch("http://localhost:3000/cell/profile")
+        fetch("https://citizenlink.onrender.com/cell/profile")
+            .then(response => response.json())
+            .then(data => {
+                // let data=data[0];
+                let cell = document.getElementById("cell").innerHTML = data[0].cell;
+                let sector = document.getElementById("sector").innerHTML = data[0].sector;
+            })
+
+    </script>
+</head>
+
+<body
+    x-data="{ page: 'ecommerce', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
+    x-init="
+         darkMode = JSON.parse(localStorage.getItem('darkMode'));
+         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+    :class="{'dark text-bodydark bg-boxdark-2': darkMode === true}">
+    <!-- ===== Preloader Start ===== -->
+    <div x-show="loaded"
+        x-init="window.addEventListener('DOMContentLoaded', () => {setTimeout(() => loaded = false, 500)})"
+        class="fixed left-0 top-0 z-999999 flex h-screen w-screen items-center justify-center bg-white dark:bg-black">
+        <div class="h-16 w-16 animate-spin rounded-full border-4 border-solid border-primary border-t-transparent">
+        </div>
+    </div>
+
+    <!-- ===== Preloader End ===== -->
+
+    <!-- ===== Page Wrapper Start ===== -->
+    <div class="flex h-screen overflow-hidden">
+        <!-- ===== Sidebar Start ===== -->
+        <aside :class="sidebarToggle ? 'translate-x-0' : '-translate-x-full'"
+            class="absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0"
+            @click.outside="sidebarToggle = false">
+            <!-- SIDEBAR HEADER -->
+            <div class="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
+                <a class=" text-xl font-bold " href="/pages/admins/index">
+                    CitizenLink
+                    <!-- <img class=" w-32" src=../"{{asset(path:'../../assets/images/favicon.png')}}" alt="Logo" /> -->
+                </a>
+
+                <button class="block lg:hidden" @click.stop="sidebarToggle = !sidebarToggle">
+                    <svg class="fill-current" width="20" height="18" viewBox="0 0 20 18" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M19 8.175H2.98748L9.36248 1.6875C9.69998 1.35 9.69998 0.825 9.36248 0.4875C9.02498 0.15 8.49998 0.15 8.16248 0.4875L0.399976 8.3625C0.0624756 8.7 0.0624756 9.225 0.399976 9.5625L8.16248 17.4375C8.31248 17.5875 8.53748 17.7 8.76248 17.7C8.98748 17.7 9.17498 17.625 9.36248 17.475C9.69998 17.1375 9.69998 16.6125 9.36248 16.275L3.02498 9.8625H19C19.45 9.8625 19.825 9.4875 19.825 9.0375C19.825 8.55 19.45 8.175 19 8.175Z"
+                            fill="" />
+                    </svg>
+                </button>
+            </div>
+            <!-- SIDEBAR HEADER -->
+
+            <div class="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
+                <!-- Sidebar Menu -->
+                <%-include('nav.ejs') %>
+                    <!-- Sidebar Menu -->
+
+                    <!-- Promo Box -->
+
+                    <!-- Promo Box -->
+            </div>
+        </aside>
+
+        <!-- ===== Sidebar End ===== -->
+
+        <!-- ===== Content Area Start ===== -->
+        <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
+            <!-- ===== Header Start ===== -->
+            <%-include('header.ejs')%>
+                <!-- ===== Header End ===== -->
+
+                <!-- ===== Main Content Start ===== -->
+                <main>
+                    <% if (content) {%>
+
+                        <!-- Alerts Item -->
+                        <!-- Alerts Item -->
+                        <div
+                            class="flex w-full border-l-6 border-[#F87171] bg-[#F87171] bg-opacity-[15%] px-7 py-8 shadow-md  dark:bg-opacity-30 md:p-9">
+                            <div
+                                class="mr-5 flex h-9 w-full max-w-[36px] items-center justify-center rounded-lg bg-[#F87171]">
+                                <svg width="13" height="13" viewBox="0 0 13 13" fill="none"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path
+                                        d="M6.4917 7.65579L11.106 12.2645C11.2545 12.4128 11.4715 12.5 11.6738 12.5C11.8762 12.5 12.0931 12.4128 12.2416 12.2645C12.5621 11.9445 12.5623 11.4317 12.2423 11.1114C12.2422 11.1113 12.2422 11.1113 12.2422 11.1113C12.242 11.1111 12.2418 11.1109 12.2416 11.1107L7.64539 6.50351L12.2589 1.91221L12.2595 1.91158C12.5802 1.59132 12.5802 1.07805 12.2595 0.757793C11.9393 0.437994 11.4268 0.437869 11.1064 0.757418C11.1063 0.757543 11.1062 0.757668 11.106 0.757793L6.49234 5.34931L1.89459 0.740581L1.89396 0.739942C1.57364 0.420019 1.0608 0.420019 0.740487 0.739944C0.42005 1.05999 0.419837 1.57279 0.73985 1.89309L6.4917 7.65579ZM6.4917 7.65579L1.89459 12.2639L1.89395 12.2645C1.74546 12.4128 1.52854 12.5 1.32616 12.5C1.12377 12.5 0.906853 12.4128 0.758361 12.2645L1.1117 11.9108L0.758358 12.2645C0.437984 11.9445 0.437708 11.4319 0.757539 11.1116C0.757812 11.1113 0.758086 11.111 0.75836 11.1107L5.33864 6.50287L0.740487 1.89373L6.4917 7.65579Z"
+                                        fill="#ffffff" stroke="#ffffff"></path>
+                                </svg>
+                            </div>
+                            <div class="w-full">
+                                <h5 class="mb-3 mt-2 font-bold text-[#B45454]">
+
+                                    <%=content%>
+                                </h5>
+
+                            </div>
+                        </div>
+                        <%}%>
+
+
+                            <% if (contents) {%>
+
+                                <!-- Alerts Item -->
+                                <div
+                                    class="flex w-full border-l-6 border-[#34D399] bg-[#34D399] bg-opacity-[15%] px-7 py-8 shadow-md   md:p-9">
+                                    <div
+                                        class="mr-5 flex h-9 w-full max-w-[36px] items-center justify-center rounded-lg bg-[#34D399]">
+                                        <svg width="16" height="12" viewBox="0 0 16 12" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg">
+                                            <path
+                                                d="M15.2984 0.826822L15.2868 0.811827L15.2741 0.797751C14.9173 0.401867 14.3238 0.400754 13.9657 0.794406L5.91888 9.45376L2.05667 5.2868C1.69856 4.89287 1.10487 4.89389 0.747996 5.28987C0.417335 5.65675 0.417335 6.22337 0.747996 6.59026L0.747959 6.59029L0.752701 6.59541L4.86742 11.0348C5.14445 11.3405 5.52858 11.5 5.89581 11.5C6.29242 11.5 6.65178 11.3355 6.92401 11.035L15.2162 2.11161C15.5833 1.74452 15.576 1.18615 15.2984 0.826822Z"
+                                                fill="white" stroke="white"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="w-full">
+                                        <h5 class="mb-3 mt-1 text-lg font-bold text-black dark:text-[#34D399]">
+                                            <%=contents%>
+                                        </h5>
+
+                                    </div>
+                                </div>
+
+                                <%}%>
+
+
+
+
+                                    <% if(result){ result.forEach(data=> {
+                                        %>
+
+                                        <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+                                            <div
+                                                class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                                                <h2 class="text-title-md2 font-bold text-black dark:text-slate-400">
+                                                    Problem of <%=data.citizen_name%>
+                                                </h2>
+
+                                            </div>
+
+                                            <div
+                                                class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+
+
+
+                                                <div class="mx-auto mb-5.5 mt-4.5 grid max-w-1/3 grid-cols-6 rounded-md border
+                                     border-stroke py-2.5  shadow-1border-stroke 
+                                     shadow-default dark:border-strokedark dark:bg-boxdark">
+
+                                                    <div
+                                                        class="flex flex-col items-center justify-center gap-1 border-r border-stroke px-4 dark:border-strokedark xsm:flex-row">
+                                                        <span class="text-lg">Pending</span>
+                                                    </div>
+
+                                                    <div
+                                                        class="flex flex-col items-center justify-center gap-1 border-r border-stroke px-4 dark:border-strokedark xsm:flex-row">
+                                                        <span class="text-lg">Solved</span>
+                                                    </div>
+                                                    <div
+                                                        class="flex flex-col items-center justify-center gap-1 border-r border-stroke px-4 dark:border-strokedark xsm:flex-row">
+                                                        <span class="text-lg">Submitted</span>
+                                                    </div>
+
+
+                                                    <div
+                                                        class="flex flex-col items-center justify-center gap-1 px-4 xsm:flex-row">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                        <div x-data="{popupOpen: false}">
+                                                            <button @click="popupOpen = true"
+                                                                class="flex items-center gap-2 rounded bg-primary px-4.5 py-2 font-medium text-white hover:bg-opacity-80">
+                                                                
+                                                                Solve case
+                                                            </button>
+
+
+
+                                                            <div x-show="popupOpen" x-transition
+                                                                class="fixed left-0 top-0 z-99999 flex h-screen w-full justify-center overflow-y-scroll bg-black/80 px-4 py-5">
+                                                                <div @click.outside="popupOpen = false"
+                                                                    class="relative m-auto w-full max-w-180 rounded-sm border border-stroke bg-gray p-4 shadow-default dark:border-strokedark dark:bg-meta-4 sm:p-8 xl:p-10">
+                                                                    <button @click="popupOpen = false"
+                                                                        class="absolute right-1 top-1 sm:right-5 sm:top-5">
+                                                                        <svg class="fill-current" width="20" height="20"
+                                                                            viewBox="0 0 20 20" fill="none"
+                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                            <path fill-rule="evenodd"
+                                                                                clip-rule="evenodd"
+                                                                                d="M11.8913 9.99599L19.5043 2.38635C20.032 1.85888 20.032 1.02306 19.5043 0.495589C18.9768 -0.0317329 18.141 -0.0317329 17.6135 0.495589L10.0001 8.10559L2.38673 0.495589C1.85917 -0.0317329 1.02343 -0.0317329 0.495873 0.495589C-0.0318274 1.02306 -0.0318274 1.85888 0.495873 2.38635L8.10887 9.99599L0.495873 17.6056C-0.0318274 18.1331 -0.0318274 18.9689 0.495873 19.4964C0.717307 19.7177 1.05898 19.9001 1.4413 19.9001C1.75372 19.9001 2.13282 19.7971 2.40606 19.4771L10.0001 11.8864L17.6135 19.4964C17.8349 19.7177 18.1766 19.9001 18.5589 19.9001C18.8724 19.9001 19.2531 19.7964 19.5265 19.4737C20.0319 18.9452 20.0245 18.1256 19.5043 17.6056L11.8913 9.99599Z"
+                                                                                fill="" />
+                                                                        </svg>
+                                                                    </button>
+                                                                    <form action="/cell/solved/<%=data.submitionId %>" method="post">
+
+                                                                        <div class="mb-5">
+                                                                            <label for="taskDescription"
+                                                                                class="mb-2.5 block font-medium text-black dark:text-slate-500">Add way problem solved </label>
+                                                                            <textarea name="solve_description"
+                                                                                id="taskDescription" cols="30" rows="7"
+                                                                                placeholder=""
+                                                                                class="w-full rounded-sm border border-stroke  px-4.5 py-3 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-boxdark dark:text-slate-400 dark:focus:border-primary"></textarea>
+                                                                        </div>
+
+  
+
+                                                                        <button
+                                                                            class="flex w-full items-center justify-center gap-2 rounded bg-primary px-4.5 py-2.5 font-medium text-white">
+                                                                            Solved
+                                                                        </button>
+                                                                    </form>
+
+
+
+
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+
+
+
+
+ 
+
+
+
+                                                    </div>
+
+                                                   
+                                                    <div x-data="{popupOpen: false}">
+                                                            <button @click="popupOpen = true"
+                                                                class="flex items-center gap-2 rounded bg-primary px-4.5 py-2 font-medium text-white hover:bg-opacity-80">
+                                                                
+                                                                Submit to sector
+
+                                                            </button>
+
+
+
+                                                            <div x-show="popupOpen" x-transition
+                                                                class="fixed left-0 top-0 z-99999 flex h-screen w-full justify-center overflow-y-scroll bg-black/80 px-4 py-5">
+                                                                <div @click.outside="popupOpen = false"
+                                                                    class="relative m-auto w-full max-w-180 rounded-sm border border-stroke bg-gray p-4 shadow-default dark:border-strokedark dark:bg-meta-4 sm:p-8 xl:p-10">
+                                                                    <button @click="popupOpen = false"
+                                                                        class="absolute right-1 top-1 sm:right-5 sm:top-5">
+                                                                        <svg class="fill-current" width="20" height="20"
+                                                                            viewBox="0 0 20 20" fill="none"
+                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                            <path fill-rule="evenodd"
+                                                                                clip-rule="evenodd"
+                                                                                d="M11.8913 9.99599L19.5043 2.38635C20.032 1.85888 20.032 1.02306 19.5043 0.495589C18.9768 -0.0317329 18.141 -0.0317329 17.6135 0.495589L10.0001 8.10559L2.38673 0.495589C1.85917 -0.0317329 1.02343 -0.0317329 0.495873 0.495589C-0.0318274 1.02306 -0.0318274 1.85888 0.495873 2.38635L8.10887 9.99599L0.495873 17.6056C-0.0318274 18.1331 -0.0318274 18.9689 0.495873 19.4964C0.717307 19.7177 1.05898 19.9001 1.4413 19.9001C1.75372 19.9001 2.13282 19.7971 2.40606 19.4771L10.0001 11.8864L17.6135 19.4964C17.8349 19.7177 18.1766 19.9001 18.5589 19.9001C18.8724 19.9001 19.2531 19.7964 19.5265 19.4737C20.0319 18.9452 20.0245 18.1256 19.5043 17.6056L11.8913 9.99599Z"
+                                                                                fill="" />
+                                                                        </svg>
+                                                                    </button>
+
+
+                                                                        <form action="/cell/submit/<%=data.problemId %>"
+
+                                                                        
+                                                                        method="post" enctype="multipart/form-data">
+
+                                                                        <div class="mb-5">
+                                                                            <label for="taskDescription"
+                                                                                class="mb-2.5 block font-medium text-black dark:text-slate-500">Add way problem solved</label>
+                                                                            <textarea name="solve_description"
+                                                                                id="taskDescription" cols="30" rows="7"
+                                                                                placeholder=""
+                                                                                class="w-full rounded-sm border border-stroke  px-4.5 py-3 text-black focus:border-primary focus-visible:outline-none dark:border-strokedark dark:bg-boxdark dark:text-slate-400 dark:focus:border-primary"></textarea>
+                                                                        </div>
+
+
+                                                                        <div class="mb-5">
+                                                                            <label id="citizen_name"
+                                                                                class="mb-3 text-lg  block font-medium text-black dark:text-slate-400">
+                                                                                Add supporting document </label>
+                                                                            <div x-data="{ files: null }">
+                                                                                <div id="FileUpload"
+                                                                                    class="relative block w-full appearance-none rounded-sm border-2 border-dashed border-stroke bg-white px-2 py-2 dark:border-strokedark dark:bg-boxdark dark:border-2 sm:py-8">
+                                                                                    <input name="solve_attachment"
+                                                                                        type="file"
+                                                                                        class="absolute inset-0 z-50 m-0 h-full w-full p-0 opacity-0 outline-none"
+                                                                                        x-on:change="files = $event.target.files;"
+                                                                                        x-on:dragover="$el.classList.add('active')"
+                                                                                        x-on:dragleave="$el.classList.remove('active')"
+                                                                                        x-on:drop="$el.classList.remove('active')" />
+                                                                                    <div
+                                                                                        class="flex flex-col items-center justify-center space-y-3">
+                                                                                        <span
+                                                                                            class="flex h-11.5 w-11.5 items-center justify-center rounded-full border border-stroke bg-primary/5 dark:border-strokedark">
+                                                                                            <svg width="20" height="20"
+                                                                                                viewBox="0 0 20 20"
+                                                                                                fill="none"
+                                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                                <g
+                                                                                                    clip-path="url(#clip0_75_12841)">
+                                                                                                    <path
+                                                                                                        d="M2.5 15.8333H17.5V17.5H2.5V15.8333ZM10.8333 4.85663V14.1666H9.16667V4.85663L4.1075 9.91663L2.92917 8.73829L10 1.66663L17.0708 8.73746L15.8925 9.91579L10.8333 4.85829V4.85663Z"
+                                                                                                        fill="#3C50E0" />
+                                                                                                </g>
+                                                                                                <defs>
+                                                                                                    <clipPath
+                                                                                                        id="clip0_75_12841">
+                                                                                                        <rect width="20"
+                                                                                                            height="20"
+                                                                                                            fill="white" />
+                                                                                                    </clipPath>
+                                                                                                </defs>
+                                                                                            </svg>
+                                                                                        </span>
+                                                                                        <p class="text-xs">
+                                                                                            <span
+                                                                                                class="text-primary">Click
+                                                                                                to upload</span> or drag
+                                                                                            and
+                                                                                            drop
+                                                                                        </p>
+                                                                                    </div>
+                                                                                </div>
+
+                                                                                <template x-if="files !== null">
+                                                                                    <div
+                                                                                        class="mt-4.5 border border-stroke bg-white px-4 py-3 dark:border-strokedark dark:bg-boxdark">
+                                                                                        <div
+                                                                                            class="flex items-center justify-between">
+                                                                                            <template
+                                                                                                x-for="(_,index) in Array.from({ length: files.length })">
+                                                                                                <span
+                                                                                                    x-text="files[index].name">Uploading</span>
+                                                                                            </template>
+
+                                                                                            <button
+                                                                                                @click="files = null">
+                                                                                                <svg class="fill-current"
+                                                                                                    width="10"
+                                                                                                    height="10"
+                                                                                                    viewBox="0 0 10 10"
+                                                                                                    fill="none"
+                                                                                                    xmlns="http://www.w3.org/2000/svg">
+                                                                                                    <path
+                                                                                                        fill-rule="evenodd"
+                                                                                                        clip-rule="evenodd"
+                                                                                                        d="M0.279337 0.279338C0.651787 -0.0931121 1.25565 -0.0931121 1.6281 0.279338L9.72066 8.3719C10.0931 8.74435 10.0931 9.34821 9.72066 9.72066C9.34821 10.0931 8.74435 10.0931 8.3719 9.72066L0.279337 1.6281C-0.0931125 1.25565 -0.0931125 0.651788 0.279337 0.279338Z"
+                                                                                                        fill="" />
+                                                                                                    <path
+                                                                                                        fill-rule="evenodd"
+                                                                                                        clip-rule="evenodd"
+                                                                                                        d="M0.279337 9.72066C-0.0931125 9.34821 -0.0931125 8.74435 0.279337 8.3719L8.3719 0.279338C8.74435 -0.0931127 9.34821 -0.0931123 9.72066 0.279338C10.0931 0.651787 10.0931 1.25565 9.72066 1.6281L1.6281 9.72066C1.25565 10.0931 0.651787 10.0931 0.279337 9.72066Z"
+                                                                                                        fill="" />
+                                                                                                </svg>
+                                                                                            </button>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </template>
+                                                                            </div>
+                                                                        </div>
+                                                                        <button
+                                                                            class="flex w-full items-center justify-center gap-2 rounded bg-primary px-4.5 py-2.5 font-medium text-white">
+                                                                            Submit to sector
+                                                                        </button>
+                                                                    </form>
+
+
+
+
+
+                                                                </div>
+                                                            </div>
+
+                                                        </div>
+
+
+
+
+
+                                                    <div>
+                                                        <form action="/cell/solvedcase/<%=data.submitionId%>" method="get"
+                                                            enctype="multipart/form-data">
+                                                            <button
+                                                                class="flex items-center gap-2 rounded bg-primary px-4.5 py-2 font-medium text-white hover:bg-opacity-80">
+                                                                Way solved</button>
+                                                        </form>
+
+
+                                                    </div>
+
+
+                                                    <% if(data.status==="pending" ){ %>
+                                                        <p class="flex justify-center text-center">
+                                                            <svg width="25" height="25" viewBox="0 0 25 25" fill="none"
+                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                <path
+                                                                    d="M12.5 24.5312C5.85937 24.5312 0.507812 19.1406 0.507812 12.5C0.507812 5.85937 5.85937 0.507812 12.5 0.507812C19.1406 0.507812 24.5312 5.85937 24.5312 12.5C24.5312 19.1406 19.1406 24.5312 12.5 24.5312ZM12.5 1.875C6.64062 1.875 1.875 6.64062 1.875 12.5C1.875 18.3594 6.64062 23.1641 12.5 23.1641C18.3594 23.1641 23.1641 18.3594 23.1641 12.5C23.1641 6.64062 18.3594 1.875 12.5 1.875Z"
+                                                                    fill="#13C296" />
+                                                                <path
+                                                                    d="M11.1719 15.2344C10.8984 15.2344 10.6641 15.1562 10.4297 14.9609L7.85156 12.4609C7.57812 12.1875 7.57812 11.7578 7.85156 11.4844C8.125 11.2109 8.55469 11.2109 8.82813 11.4844L11.1719 13.7891L16.1719 8.94531C16.4453 8.67187 16.875 8.67187 17.1484 8.94531C17.4219 9.21875 17.4219 9.64844 17.1484 9.92188L11.9531 15C11.6797 15.1563 11.4063 15.2344 11.1719 15.2344Z"
+                                                                    fill="#13C296" />
+                                                            </svg>
+                                                        </p>
+                                                        <% }else{ %>
+
+                                                            <p class="flex justify-center text-center">
+                                                                <svg width="25" height="25" viewBox="0 0 25 25"
+                                                                    fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                                    <path
+                                                                        d="M12.4797 0C5.56911 0 0 5.56911 0 12.4797C0 19.3902 5.56911 25 12.4797 25C19.3902 25 25 19.3902 25 12.4797C25 5.56911 19.3902 0 12.4797 0ZM12.4797 23.5772C6.38211 23.5772 1.42276 18.5772 1.42276 12.4797C1.42276 6.38211 6.38211 1.42276 12.4797 1.42276C18.5772 1.42276 23.5772 6.38211 23.5772 12.4797C23.5772 18.5772 18.5772 23.5772 12.4797 23.5772Z"
+                                                                        fill="#FF9494" />
+                                                                    <path
+                                                                        d="M16.2204 8.73978C15.9359 8.45523 15.4887 8.45523 15.2042 8.73978L12.4806 11.4634L9.75702 8.73978C9.47247 8.45523 9.02531 8.45523 8.74076 8.73978C8.45621 9.02433 8.45621 9.47149 8.74076 9.75604L11.4643 12.4796L8.74076 15.2032C8.45621 15.4878 8.45621 15.9349 8.74076 16.2195C8.86271 16.3414 9.06596 16.4227 9.22856 16.4227C9.39117 16.4227 9.59442 16.3414 9.71637 16.2195L12.4399 13.4959L15.1635 16.2195C15.2855 16.3414 15.4887 16.4227 15.6513 16.4227C15.8139 16.4227 16.0172 16.3414 16.1391 16.2195C16.4237 15.9349 16.4237 15.4878 16.1391 15.2032L13.4969 12.4796L16.2204 9.75604C16.4643 9.47149 16.4643 9.02433 16.2204 8.73978Z"
+                                                                        fill="#FF9494" />
+                                                                </svg>
+                                                            </p>
+
+                                                            <% } %>
+
+
+                                                                <% if(data.status==="solved" ){ %>
+                                                                    <p class="flex justify-center text-center">
+                                                                        <svg width="25" height="25" viewBox="0 0 25 25"
+                                                                            fill="none"
+                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                            <path
+                                                                                d="M12.5 24.5312C5.85937 24.5312 0.507812 19.1406 0.507812 12.5C0.507812 5.85937 5.85937 0.507812 12.5 0.507812C19.1406 0.507812 24.5312 5.85937 24.5312 12.5C24.5312 19.1406 19.1406 24.5312 12.5 24.5312ZM12.5 1.875C6.64062 1.875 1.875 6.64062 1.875 12.5C1.875 18.3594 6.64062 23.1641 12.5 23.1641C18.3594 23.1641 23.1641 18.3594 23.1641 12.5C23.1641 6.64062 18.3594 1.875 12.5 1.875Z"
+                                                                                fill="#13C296" />
+                                                                            <path
+                                                                                d="M11.1719 15.2344C10.8984 15.2344 10.6641 15.1562 10.4297 14.9609L7.85156 12.4609C7.57812 12.1875 7.57812 11.7578 7.85156 11.4844C8.125 11.2109 8.55469 11.2109 8.82813 11.4844L11.1719 13.7891L16.1719 8.94531C16.4453 8.67187 16.875 8.67187 17.1484 8.94531C17.4219 9.21875 17.4219 9.64844 17.1484 9.92188L11.9531 15C11.6797 15.1563 11.4063 15.2344 11.1719 15.2344Z"
+                                                                                fill="#13C296" />
+                                                                        </svg>
+                                                                    </p>
+                                                                    <% }else{ %>
+
+                                                                        <p class="flex justify-center text-center">
+                                                                            <svg width="25" height="25"
+                                                                                viewBox="0 0 25 25" fill="none"
+                                                                                xmlns="http://www.w3.org/2000/svg">
+                                                                                <path
+                                                                                    d="M12.4797 0C5.56911 0 0 5.56911 0 12.4797C0 19.3902 5.56911 25 12.4797 25C19.3902 25 25 19.3902 25 12.4797C25 5.56911 19.3902 0 12.4797 0ZM12.4797 23.5772C6.38211 23.5772 1.42276 18.5772 1.42276 12.4797C1.42276 6.38211 6.38211 1.42276 12.4797 1.42276C18.5772 1.42276 23.5772 6.38211 23.5772 12.4797C23.5772 18.5772 18.5772 23.5772 12.4797 23.5772Z"
+                                                                                    fill="#FF9494" />
+                                                                                <path
+                                                                                    d="M16.2204 8.73978C15.9359 8.45523 15.4887 8.45523 15.2042 8.73978L12.4806 11.4634L9.75702 8.73978C9.47247 8.45523 9.02531 8.45523 8.74076 8.73978C8.45621 9.02433 8.45621 9.47149 8.74076 9.75604L11.4643 12.4796L8.74076 15.2032C8.45621 15.4878 8.45621 15.9349 8.74076 16.2195C8.86271 16.3414 9.06596 16.4227 9.22856 16.4227C9.39117 16.4227 9.59442 16.3414 9.71637 16.2195L12.4399 13.4959L15.1635 16.2195C15.2855 16.3414 15.4887 16.4227 15.6513 16.4227C15.8139 16.4227 16.0172 16.3414 16.1391 16.2195C16.4237 15.9349 16.4237 15.4878 16.1391 15.2032L13.4969 12.4796L16.2204 9.75604C16.4643 9.47149 16.4643 9.02433 16.2204 8.73978Z"
+                                                                                    fill="#FF9494" />
+                                                                            </svg>
+                                                                        </p>
+
+                                                                        <% } %>
+
+
+
+
+
+                                                                            <% if(data.status==="submitted" ){ %>
+                                                                                <p
+                                                                                    class="flex justify-center text-center">
+                                                                                    <svg width="25" height="25"
+                                                                                        viewBox="0 0 25 25" fill="none"
+                                                                                        xmlns="http://www.w3.org/2000/svg">
+                                                                                        <path
+                                                                                            d="M12.5 24.5312C5.85937 24.5312 0.507812 19.1406 0.507812 12.5C0.507812 5.85937 5.85937 0.507812 12.5 0.507812C19.1406 0.507812 24.5312 5.85937 24.5312 12.5C24.5312 19.1406 19.1406 24.5312 12.5 24.5312ZM12.5 1.875C6.64062 1.875 1.875 6.64062 1.875 12.5C1.875 18.3594 6.64062 23.1641 12.5 23.1641C18.3594 23.1641 23.1641 18.3594 23.1641 12.5C23.1641 6.64062 18.3594 1.875 12.5 1.875Z"
+                                                                                            fill="#13C296" />
+                                                                                        <path
+                                                                                            d="M11.1719 15.2344C10.8984 15.2344 10.6641 15.1562 10.4297 14.9609L7.85156 12.4609C7.57812 12.1875 7.57812 11.7578 7.85156 11.4844C8.125 11.2109 8.55469 11.2109 8.82813 11.4844L11.1719 13.7891L16.1719 8.94531C16.4453 8.67187 16.875 8.67187 17.1484 8.94531C17.4219 9.21875 17.4219 9.64844 17.1484 9.92188L11.9531 15C11.6797 15.1563 11.4063 15.2344 11.1719 15.2344Z"
+                                                                                            fill="#13C296" />
+                                                                                    </svg>
+                                                                                </p>
+                                                                                <% }else{ %>
+
+                                                                                    <p
+                                                                                        class="flex justify-center text-center">
+                                                                                        <svg width="25" height="25"
+                                                                                            viewBox="0 0 25 25"
+                                                                                            fill="none"
+                                                                                            xmlns="http://www.w3.org/2000/svg">
+                                                                                            <path
+                                                                                                d="M12.4797 0C5.56911 0 0 5.56911 0 12.4797C0 19.3902 5.56911 25 12.4797 25C19.3902 25 25 19.3902 25 12.4797C25 5.56911 19.3902 0 12.4797 0ZM12.4797 23.5772C6.38211 23.5772 1.42276 18.5772 1.42276 12.4797C1.42276 6.38211 6.38211 1.42276 12.4797 1.42276C18.5772 1.42276 23.5772 6.38211 23.5772 12.4797C23.5772 18.5772 18.5772 23.5772 12.4797 23.5772Z"
+                                                                                                fill="#FF9494" />
+                                                                                            <path
+                                                                                                d="M16.2204 8.73978C15.9359 8.45523 15.4887 8.45523 15.2042 8.73978L12.4806 11.4634L9.75702 8.73978C9.47247 8.45523 9.02531 8.45523 8.74076 8.73978C8.45621 9.02433 8.45621 9.47149 8.74076 9.75604L11.4643 12.4796L8.74076 15.2032C8.45621 15.4878 8.45621 15.9349 8.74076 16.2195C8.86271 16.3414 9.06596 16.4227 9.22856 16.4227C9.39117 16.4227 9.59442 16.3414 9.71637 16.2195L12.4399 13.4959L15.1635 16.2195C15.2855 16.3414 15.4887 16.4227 15.6513 16.4227C15.8139 16.4227 16.0172 16.3414 16.1391 16.2195C16.4237 15.9349 16.4237 15.4878 16.1391 15.2032L13.4969 12.4796L16.2204 9.75604C16.4643 9.47149 16.4643 9.02433 16.2204 8.73978Z"
+                                                                                                fill="#FF9494" />
+                                                                                        </svg>
+                                                                                    </p>
+
+                                                                                    <% } %>
+
+
+
+
+                                                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+                                                <div class="flex flex-col gap-7.5 p-4 sm:p-6 xl:p-9">
+                                                    <div>
+                                                        <h3
+                                                            class="mb-5 text-title-md2 font-bold text-black dark:text-slate-400">
+                                                            <%=data.problem_title %>
+                                                        </h3>
+
+                                                        <p class="font-medium text-xl">
+                                                            <%=data.problem_description %>
+
+                                                        </p>
+
+
+                                                    </div>
+
+                                                    <div>
+                                                    </div>
+
+                                                    <div>
+
+                                                    </div>
+
+                                                    <% if(data.attachment){
+
+
+                                                        %>
+
+                                                        <div>
+                                                            <h4
+                                                                class="mb-5 text-title-sm2 font-bold leading-[30px] text-black dark:text-slate-400">
+                                                                Supporting document
+                                                            </h4>
+
+                                                            <ul class="flex flex-col gap-2.5">
+                                                                <li class="font-medium text-primary underline">
+                                                                    <p
+                                                                        class="bg-slate-500 p-2 flex w-96 justify-center items-center text-center rounded-lg shadow-2xl ">
+
+                                                                        <svg width="33px" height="33px"
+                                                                            viewBox="-4.8 -4.8 57.60 57.60"
+                                                                            xmlns="http://www.w3.org/2000/svg"
+                                                                            fill="#000000">
+
+                                                                            <g id="SVGRepo_bgCarrier"
+                                                                                stroke-width="0" />
+
+                                                                            <g id="SVGRepo_tracerCarrier"
+                                                                                stroke-linecap="round"
+                                                                                stroke-linejoin="round" />
+
+                                                                            <g id="SVGRepo_iconCarrier">
+
+                                                                                <defs>
+
+                                                                                    <style>
+                                                                                        .a {
+                                                                                            fill: none;
+                                                                                            stroke: #fffafa;
+                                                                                            stroke-linecap: round;
+                                                                                            stroke-linejoin: round;
+                                                                                        }
+                                                                                    </style>
+
+                                                                                </defs>
+
+                                                                                <path class="a"
+                                                                                    d="M14,4.5H10.5a2,2,0,0,0-2,2v35a2,2,0,0,0,2,2h27a2,2,0,0,0,2-2V6.5a2,2,0,0,0-2-2H24" />
+
+                                                                                <path class="a"
+                                                                                    d="M12,4.5l1.4142-1.4142A2,2,0,0,1,14.8284,2.5H23a1,1,0,0,1,1,1v25l-5-5-5,5V4.5" />
+
+                                                                                <line class="a" x1="14" y1="38" x2="34"
+                                                                                    y2="38" />
+
+                                                                                <line class="a" x1="24" y1="10" x2="34"
+                                                                                    y2="10" />
+
+                                                                                <line class="a" x1="24" y1="17" x2="34"
+                                                                                    y2="17" />
+
+                                                                                <line class="a" x1="24" y1="24" x2="34"
+                                                                                    y2="24" />
+
+                                                                                <line class="a" x1="14" y1="31" x2="34"
+                                                                                    y2="31" />
+
+                                                                            </g>
+
+                                                                        </svg>
+                                                                        <a href="#"
+                                                                            class="  text-white no-underline rounded-md pl-2 pr-2"
+                                                                            onclick="document.getElementById('pdfViewer').src='/docs/<%= encodeURIComponent(data.attachment) %>';">
+                                                                            <%=data.attachment%>
+                                                                        </a>
+                                                                    </p>
+
+                                                                </li>
+                                                            </ul>
+                                                            <div class="pdf-container mt-5">
+                                                                <iframe id="pdfViewer" src="" width="100%"
+                                                                    height="600px" style="border: none;">
+                                                                </iframe>
+                                                            </div>
+                                                        </div>
+                                                        <% }else{} %>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <% }) } %>
+                </main>
+                <!-- ===== Main Content End ===== -->
+
+
+
+        </div>
+        <!-- ===== Content Area End ===== -->
+    </div>
+    <!-- ===== Page Wrapper End ===== -->
+
+
+
+    <script defer src="../../assets/src/bundle.js"></script>
+    <script defer src="../../assets/src/static.js"></script>
+
+    </script>
+</body>
+
+ 
+</html>

@@ -1,0 +1,22 @@
+# Ignore node_modules directory
+node_modules/
+
+# Ignore log files
+*.log
+
+# Ignore all .env files
+.env
+
+# Ignore build output
+/build
+
+ 
+public/assets/images/bcase.png
+public/assets/images/bcase.png
+
+/backup
+
+
+
+/public/docs
+#  git push -u origin main

@@ -1,0 +1,505 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CitizensLink</title>
+  <script src="assets/js/tailwind.min.js"></script>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <!-- <link rel="stylesheet" href="assets/css/style.css" /> -->
+  <script src="assets/js/flowbite.min.js"></script>
+
+  <script src="assets/language.js"></script>
+
+  <style>
+    /* animate text */
+    .animated-text {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 0 40px;
+      height: 60px;
+      overflow: hidden;
+    }
+
+    .line {
+      text-align: center;
+      font-size: 40px;
+      line-height: 60px;
+      text-transform: uppercase;
+    }
+
+    .line:first-child {
+      animation: anim 12s infinite;
+    }
+
+    @keyframes anim {
+      0% {
+        margin-top: 0;
+      }
+
+      16% {
+        margin-top: -60px;
+      }
+
+      33% {
+        margin-top: -120px;
+      }
+
+      50% {
+        margin-top: -180px;
+      }
+
+      66% {
+        margin-top: -120px;
+      }
+
+      82% {
+        margin-top: -60px;
+      }
+
+      100% {
+        margin-top: 0;
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-slate-200">
+  <header class="">
+
+
+    <nav class="bg-white border-gray-200  p-2 fixed w-full z-50 -mt-36">
+      <div class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4">
+        <a href="" class="flex items-center space-x-3 rtl:space-x-reverse">
+
+
+          <img src="assets/images/logo.jpg" class="h-20 absolute"  alt="CitizensLink" />
+          <span class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white">CitizensLink</span>
+        </a>
+        <button data-collapse-toggle="navbar-default" type="button"
+          class="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 "
+          aria-controls="navbar-default" aria-expanded="false">
+          <span class="sr-only">Open main menu</span>
+          <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 17 14">
+            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+              d="M1 1h15M1 7h15M1 13h15" />
+          </svg>
+        </button>
+        <div class="hidden w-full md:block md:w-auto" id="navbar-default">
+          <ul
+            class="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white">
+            <li>
+              <a href="#" class="block py-2 px-3 text-slate-900 rounded  md:p-0 hover:bg-transparent">Home</a>
+            </li>
+            <li>
+              <a href="#about" class="block py-2 px-3 text-slate-900 rounded  md:p-0 hover:bg-transparent">About</a>
+            </li>
+            <li>
+              <a href="#" class=" hidden py-2 px-3 text-slate-900 rounded  md:p-0 hover:bg-transparent">Services</a>
+            </li>
+            <li>
+              <a href="#" class=" hidden py-2 px-3 text-slate-900 rounded  md:p-0 hover:bg-transparent">Report</a>
+            </li>
+            <li>
+              <a href="#aboutus" class="block py-2 px-3 text-slate-900 rounded  md:p-0 hover:bg-transparent">Contact us</a>
+            </li>
+            <li>
+              <a href="/login"
+                class="text-xl text-white bg-blue-600 focus:border-blue-600 focus:border-2 rounded-md pl-7 shadow-2xl shadow-blue-600 font-bold pr-7 p-2 hover:bg-blue-400 ">Login</a>
+            </li>
+          </ul>
+        </div>
+      </div>  
+       
+    </nav>
+
+            
+
+
+
+  </header>
+
+  <div class=" w-full  mt-36 mb-20 ml-4 relative z-10 flex  justify-center items-center text-center">
+    <div class="animated-text">
+      <div class="line font-bold">Citizen Engagement System </div>
+      <div class="line font-bold">Manage citizens's problems</div>
+      <div class="line font-bold">Address citizens problems</div>
+      <div class="line font-bold">Umuturage kwisonga</div>
+    </div>
+  </div>
+
+  <div class="text-center mb-32 mt-5">
+    <p class="text-2xl text-center capitalize">
+      Track most problems citizenss encounter.
+    </p>
+ 
+  </div>
+
+  <div class="overflow-hidden">
+    <div data-aos="fade-right" class="flex px-[10%]">
+      <div class="round-lg z-0 rounded-[50px] h-[65vh] w-full overflow-hidden">
+        <div class="flex justify-between h-full bg-blue-900">
+
+        </div>
+
+        <div id="about"
+          class="-mt-[120%] md:-mt-[50%] p-4 md:p-[10%] flex flex-col md:flex-row gap-10 md:gap-0 md:justify-between items-center h-full text-white">
+          <div id="about" class="w-full md:w-[max-content] z-20">
+            <h1 class="text-3xl md:text-5xl text-left md:mt-32 lg:mt-28">
+              Citizen Engagement System 
+            </h1>
+          </div>
+          <div class="hidden md:block md:w-[100px] w-full h-[2px] bg-white z-20 mt-28"></div>
+
+          <div class="w-full md:w-[40%] z-20 -mt-12 md:mt-16 leading-relaxed">
+            <p class="leading-relaxed text-lg md:text-xl mt-16">
+              <b class="text-2xl text-gray-100">Citizen Engagement System </b>
+              <br />
+              Citizen Engagement System is an online platform that assists leaders at all levels Cell, Sector, and District in
+              receiving and resolving citizen cases. When necessary, unresolved issues can be submitted to higher
+              administrative levels. Additionally, citizens can directly submit their cases at the cell level for
+              further action.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="Services" class="pt-28 mt-1">
+      <!-- <div class="text-center px-6 md:px-16 flex flex-col justify-center">
+        <h2 class="text-5xl leading-tight">System Services</h2>
+      </div> -->
+
+      <!-- <div data-aos="slide-up"
+        class="flex flex-col md:flex-col lg:flex-row lg:justify-evenly justify-center items-center">
+        <div class="grid grid-cols-1 md:grid-cols-3">
+          <div class="w-[429.879px] mr-5 p-4 justify-self-center">
+            <div class="bg-blue-200 rounded-2xl px-12 pt-10 pb-20 shadow-lg shadow-blue-200">
+              <div
+                class="flex w-24 h-24 items-center justify-center ml-auto rounded-full border border-blue-500 animate-pulse">
+                <img src="{{asset(path:'assets/images/paper2.png')}}"
+                alt="" />
+              </div>
+              <h2 class="text-3xl font-bold pb-8 pt-12">Cell Level</h2>
+              <p class="text-base text-left leading-7">
+                Citizen Engagement System  On Cell Level it help Leader keep citizens cases and
+                problems in order to manage those cases once case is complex
+                on village level case submited to other level of sector or
+                when citizens isn't happy for result from Cell village level it
+                also submited to sector level and also cell leader receive
+                citzen case.
+              </p>
+            </div>
+          </div>
+
+          <div class="w-[429.879px] mr-5 p-4 justify-self-center">
+            <div class="bg-orange-100 rounded-2xl px-12 pt-10 pb-20 shadow-lg shadow-orange-100">
+              <div
+                class="flex w-24 h-24 items-center justify-center ml-auto rounded-full border border-blue-500 animate-pulse">
+               
+
+                <img src= "{{asset(path:'assets/images/paper.png')}}" alt="" />
+              </div>
+              <h2 class="text-3xl font-bold pb-8 pt-12">Sector Level</h2>
+              <p class="text-base text-left leading-7">
+                Citizen Engagement System  On Sector Level it help Leader receive citizens
+                cases and problems from Cell level in order to manage those
+                cases and analyse most cases in Cell once case is complex on
+                Sector level case submited to other level of district or when
+                citizens isn't happy about result from Sector level it also
+                submited to District level.
+              </p>
+            </div>
+          </div>
+
+          <div class="w-[429.879px] mr-5 p-4 justify-self-center justify-center">
+            <div class="bg-indigo-200 rounded-2xl px-12 pt-10 pb-20 shadow-lg shadow-zinc-400">
+              <div
+                class="flex w-24 h-24 items-center justify-center ml-auto rounded-full border border-blue-500 animate-pulse">
+             
+                <img src= "{{asset(path:'assets/images/paper.png')}}" alt="" />
+              </div>
+              <h2 class="text-3xl font-bold pb-8 pt-12">District Level</h2>
+              <p class="text-base text-left leading-7 mb-20">
+                Citizen Engagement System  On District Level it help Leader receive citizens
+                cases and problems from sector level in order to manage those
+                cases and analyse most cases in Sector once case is complex on
+                district case submited on court of law.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div> -->
+
+      <div id="Login" class="login -mb-9 md:pt-16 mt-1">
+        <!-- <div class="text-center px-6 md:px-16 flex flex-col justify-center">
+            <h2 class="text-5xl leading-tight">Signup and Login</h2>
+          </div> -->
+
+        <div data-aos="zoom-in" class="flex flex-col md:flex-col lg:flex-row justify-evenly items-center">
+          <!-- <div class="flex mr-5 p-4 justify-self-center">
+              <div class="bg-blue-100 md:ml-0 rounded-2xl px-12 pt-4 pb-20">
+                <div
+                  class="flex w-24 h-24 items-center justify-center ml-auto rounded-full border border-blue-500 animate-pulse"
+                >
+                  <img src="assets/images/paper2.png" alt="" />
+                </div>
+                <h2 class="text-3xl font-bold pb-8 pt-12">Cell Level</h2>
+
+                <div
+                  class="flex items-center gap-4 py-1 text-teal-950 text-xl pb-2"
+                >
+                  <span class="text-white text-3xl -mt-1">-</span>
+                  <p>Join as Cell leader</p>
+                </div>
+
+                <div
+                  class="flex items-center gap-4 py-1 text-teal-950 text-xl pb-2"
+                >
+                  <span class="text-white text-3xl -mt-1">-</span>
+                  <p>Keep citizens cases</p>
+                </div>
+                <div
+                  class="flex items-center gap-4 py-1 text-teal-950 text-xl pb-2"
+                >
+                  <span class="text-white text-3xl -mt-1">-</span>
+                  <p>Manage citizens cases</p>
+                </div>
+
+                <div
+                  class="flex items-center gap-4 py-1 text-teal-950 text-xl pb-2"
+                >
+                  <span class="text-white text-3xl -mt-1">-</span>
+                  <p>Submit citizens cases to other Lever</p>
+                </div>
+                <div class="text-center"></div>
+                <div class="text-center">
+                  <a href="pages/cell/dashboard/index.php">
+                    <button
+                      class="text-lg bg-blue-500 bg-transparent border-2 shadow-lg border-blue-600 text-slate-700 rounded-full w-1/2 m-2 p-2 mb-2 mt-1 hover:bg-blue-400 hover:text-white hover:scale-x-105 hover:transition-all animate-pulse"
+                    >
+                      Login
+                    </button></a
+                  >
+                  <a href="pages/cell/signup.html">
+                    <button
+                      class="text-lg bg-blue-500 bg-transparent border-2 shadow-lg border-blue-600 text-slate-700 rounded-full w-1/2 m-2 p-2 mb-2 mt-1 hover:bg-blue-400 hover:text-white hover:scale-x-105 hover:transition-all animate-pulse"
+                    >
+                      Signup
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div> -->
+          <!--             
+            <div class="flex mr-5 p-4 justify-self-center">
+              <div class="bg-orange-100 rounded-2xl px-12 pt-10 pb-20">
+                <div
+                  class="flex w-24 h-24 items-center justify-center ml-auto rounded-full border border-blue-500 animate-pulse"
+                >
+                  <img src="assets/images/paper.png" alt="" />
+                </div>
+                <h2 class="text-3xl font-bold pb-8 pt-12">Sector Level</h2>
+                <div
+                  class="flex items-center gap-4 py-1 text-teal-950 text-xl pb-2"
+                >
+                  <span class="text-white text-3xl -mt-1">-</span>
+                  <p>Join as Sector leader</p>
+                </div>
+                <div
+                  class="flex items-center gap-4 py-1 text-teal-950 text-xl pb-2"
+                >
+                  <span class="text-white text-3xl -mt-1">-</span>
+                  <p>Receive citizens cases from village</p>
+                </div>
+                <div
+                  class="flex items-center gap-4 py-1 text-teal-950 text-xl pb-2"
+                >
+                  <span class="text-white text-3xl -mt-1">-</span>
+                  <p>Manage citizens cases</p>
+                </div>
+
+                <div
+                  class="flex items-center gap-4 py-1 text-teal-950 text-xl pb-2"
+                >
+                  <span class="text-white text-3xl -mt-1">-</span>
+                  <p>Submit citizens cases to other Lever</p>
+                </div>
+
+                <div class="text-center">
+                  <a href="pages/sector/login.html">
+                    <button
+                      class="text-lg bg-blue-500 bg-transparent border-2 shadow-lg border-blue-600 text-slate-700 rounded-full w-1/2 m-2 p-2 mb-2 mt-1 hover:bg-blue-400 hover:text-white hover:scale-x-105 hover:transition-all animate-pulse"
+                    >
+                      Login
+                    </button></a
+                  >
+                  <a href="pages/sector/signup.html">
+                    <button
+                      class="text-lg bg-blue-500 bg-transparent border-2 shadow-lg border-blue-600 text-slate-700 rounded-full w-1/2 m-2 p-2 mb-2 mt-1 hover:bg-blue-400 hover:text-white hover:scale-x-105 hover:transition-all animate-pulse"
+                    >
+                      Signup
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div> -->
+
+          <!-- <div class="flex mr-5 p-4 justify-self-center">
+              <div class="bg-indigo-100 rounded-2xl px-12 pt-10 pb-20">
+                <div
+                  class="flex w-24 h-24 items-center justify-center ml-auto rounded-full border border-blue-500 animate-pulse"
+                >
+                  <img src="assets/images/paper.png" alt="" />
+                </div>
+                <h2 class="text-3xl font-bold pb-8 pt-12">District Level</h2>
+                <div
+                  class="flex items-center gap-4 py-1 text-teal-950 text-xl pb-2"
+                >
+                  <span class="text-white text-3xl -mt-1">-</span>
+                  <p>Join as District leader</p>
+                </div>
+                <div
+                  class="flex items-center gap-4 py-1 text-teal-950 text-xl pb-2"
+                >
+                  <span class="text-white text-3xl -mt-1">-</span>
+                  <p>Receive citizens cases from sector</p>
+                </div>
+                <div
+                  class="flex items-center gap-4 py-1 text-teal-950 text-xl pb-2"
+                >
+                  <span class="text-white text-3xl -mt-1">-</span>
+                  <p>Analyse those cases from sector</p>
+                </div>
+
+                <div
+                  class="flex items-center gap-4 py-1 text-teal-950 text-xl pb-2"
+                >
+                  <span class="text-white text-3xl -mt-1">-</span>
+                  <p>Submite citizens cases in court</p>
+                </div>
+
+                <div class="text-center">
+                  <a href="pages/district/login.html">
+                    <button
+                      class="text-lg bg-blue-500 bg-transparent border-2 shadow-lg border-blue-600 text-slate-700 rounded-full w-1/2 m-2 p-2 mb-2 mt-1 hover:bg-blue-400 hover:text-white hover:scale-x-105 hover:transition-all animate-pulse"
+                    >
+                      Login
+                    </button></a
+                  >
+                  <a href="pages/district/signup.html">
+                    <button
+                      class="text-lg bg-blue-500 bg-transparent border-2 shadow-lg border-blue-600 text-slate-700 rounded-full w-1/2 m-2 p-2 mb-2 mt-1 hover:bg-blue-400 hover:text-white hover:scale-x-105 hover:transition-all animate-pulse"
+                    >
+                      Signup
+                    </button>
+                  </a>
+                </div>
+              </div>
+            </div> -->
+        </div>
+        <div id="mission"></div>
+      </div>
+
+      <div data-aos="zoom-in" id="contact" class="overflow-hidden mt-20 relative bg-blue-900 text-white">
+        <img
+          class="hidden md:block w-10/12 -top-30 -right-24 rotate-12 md:w-5/12 origin-center md:rotate-[540deg] absolute md:-top-72 md:-left-64"
+          src="{{asset(path:'assets/images/round-triangle.png')}}" alt="" />
+
+        <div class="justify-self-center md:mt-24 p-2 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5">
+          <div class="my-8 md:m-2">
+
+
+            <img class="" src="{{asset(path:'assets/images/logo.jpg')}}" alt="" />
+          </div>
+
+          <div id="aboutus" class="relative justify-self-center">
+            <p class="py-4 font-semibold text-xl text-white">About us</p>
+            <span class="dote"></span>
+            <p class="py-2 ml-3">Keep Citizens cases</p>
+            <span class="dote"></span>
+            <p class="py-2 ml-3">Manage Citizens cases</p>
+            <span class="dote"></span>
+            <p class="py-2 ml-3">Analyze the most common cases in society.            </p>
+            <span class="dote"></span>
+            <p class="py-2 ml-3">Submit citizen cases to higher administrative levels. </p>
+          </div>
+
+          <div class="justify-self-center">
+            <p class="py-4 font-semibold text-xl text-white">
+              This platform used by:
+            </p>
+            <div class="relative">
+              <span class="dote"></span>
+              <p class="py-2 ml-3">Citizans</p>
+              <span class="dote"></span>
+              <p class="py-2 ml-3">Cell Leader</p>
+              <span class="dote"></span>
+              <p class="py-2 ml-3">Sector Leader</p>
+              <span class="dote"></span>
+              <p class="py-2 ml-3">District Leader</p>
+            </div>
+          </div>
+
+          <!-- <div class="justify-self-center">
+            <p class="py-4 font-semibold text-xl text-white">Our Pateners:</p>
+
+            <div class="relative">
+              <span class="dote"></span>
+              <a href="#">
+                <p class="py-2 ml-3">Administrative Leaders</p>
+              </a>
+              <span class="dote"></span>
+              <a href="https://www.police.gov.rw/home/">
+                <p class="py-2 ml-3 underline">Police</p>
+              </a>
+              <span class="dote"></span>
+              <a href="https://www.rib.gov.rw/">
+                <p class="py-2 ml-3 underline">RIB</p>
+              </a>
+            </div>
+          </div> -->
+
+          <div class="justify-self-center z-20 hidden">
+            <p class="py-4 font-semibold text-xl text-white">Visit on :</p>
+
+            <div class="flex gap-5 relative">
+              <a href="https://web.facebook.com/mbarushimana.fabrice.92">
+                <img class="rounded-full" src="assets/images/facebook.svg " alt="" />
+              </a>
+              <a href="https://twitter.com/F11Mbarushimana">
+                <img class="w-7 bg-white rounded-full" src="assets/images/x.webp " alt="" />
+              </a>
+            </div>
+            <p class="py-4 font-semibold text-xl text-white">Contact us:</p>
+            <div class="relative">
+              <!-- <span class="dote"></span> -->
+              <!-- <p class="py-2 px-3">+250790270019</p> -->
+              <span class="dote" id=""></span>
+              <p class="py-2 px-3">citizenslink@gmail.com</p>
+            </div>
+          </div>
+        </div>
+
+
+        <img
+          class="hidden md:block z-10 -bottom-24 right-44 rotate-12 md:w-5/12 origin-center md:rotate-[140deg] absolute md:top-40 md:-right-80"
+          src="assets/images/round-triangle.png" alt="" />
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1900
+    });
+  </script>
+</body>
+
+
+
+</html>

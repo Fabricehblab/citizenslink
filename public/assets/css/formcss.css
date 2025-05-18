@@ -1,0 +1,244 @@
+
+.dark{
+	background: #000;
+}
+.dote::before{
+	content: " ";
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+	background: whitesmoke;
+	top: 23px;
+    left: -0.15rem;
+	display: flex;
+	position: relative;
+	
+}
+.dotes::before{
+	content: " ";
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+	background: black;
+	top: 23px;
+    left: 2.6rem;
+	display: flex;
+	position: relative;
+	
+}
+.font-medium{
+	font-family:ebrima;
+	font-size:1.2rem;
+}
+
+.popup-hiden{
+	display: none;
+	left: 32rem;
+ }
+
+.popup-content{
+	animation: fadeIn 1s;
+}
+
+@keyframes fadeIn {
+	0%{
+		opacity: 0;
+		transform: translateY(-50%);
+	}
+	100%{
+		opacity: 2;
+		transform: translateY(100);
+	}
+}
+
+
+
+
+.enterarea{
+	position: relative;
+	height: 60px;
+	line-height: 50px;
+}
+input{
+	position: absolute;
+	width: 80%;
+	border: solid 1px;
+	line-height: 0px;
+	border-radius: 11px;
+	border: 2 solid white;
+	background: transparent;
+	transition: 0.1s ease;
+	z-index: 11;
+}
+ 
+.labelline{
+	position: absolute;
+	padding: 0 20px;
+	margin: 0 20px;
+	color: #000000;
+	background: white;
+	transition: 0.2s ease;
+	color: #00000071;
+
+}
+ 
+  
+input:focus+ .labelline,
+input:valid + .labelline{
+	height: 20px;
+	line-height: 34px;
+	transform: translate(-15px,-16px)scale(0.88);
+	z-index: 11111;
+	
+ }
+
+
+ .overhidden{
+	overflow-y: hidden;
+ }
+
+
+
+
+ /* dashboard */
+
+.hiddenSetting::before{
+	content: '';
+	width: 15px;
+	height: 15px;
+	background:rgb(226 232 240);
+	position: absolute;
+	top: -3px;
+	left: 0.4rem;
+	rotate: 40deg;
+}
+
+ .hiddenSetting{
+	display: none;
+ }
+
+
+.hiddenimage:hover .hiddenSetting{
+	display: block;
+}
+
+.hiddenSetting{
+	animation: 1s ease-in-out fadeIn;
+}
+
+
+.animation-settings {
+	animation: 0.9s ease-in-out fadeIn;
+}
+.animation-caseAdded {
+	animation: 0.9s ease-in-out fadeIn;
+}
+
+/* for animations navs  */
+/* for dashbboard */
+
+.containers:hover .circle{
+ 	border-color: rgb(97, 149, 233);
+
+}
+
+
+
+ 
+
+.hiddenSettings{
+	animation: 0.6s ease-in-out fadeIns;
+}
+@keyframes fadeIns {
+	0%{
+		opacity: 0;
+		transform: translateY(5%);
+	}
+	100%{
+		opacity: 2;
+		transform: translateY(100);
+	}
+}
+
+/* animate case added */
+
+@keyframes fadeIn {
+	0%{
+		opacity: 0;
+		transform: translateY(-70%);
+	}
+	100%{
+		opacity: 2;
+		transform: translateY(100);
+	}
+}
+
+
+.aftersetting::before{
+	content: "";
+	height: 21px;
+	width: 21px;
+	background-color:white;
+ 	position: absolute;
+	top: -9px;
+	right: 38px;
+	rotate: 47deg;
+}
+.dispable_submit{
+	cursor: not-allowed;
+	background-color:#454444;
+	color: white;
+}
+
+
+@keyframes fadeRight{
+	0%{
+		opacity: 0;
+		transform: translateX(-70%);
+	}
+	 
+	2%{
+		opacity: 0;
+		transform: translateX(100%);
+	}
+	3%{
+		opacity: 0;
+		transform: translateX(100%);
+	}
+
+}
+
+  
+.hide1,.hide2,.hide3,.hide4,.hide5{
+	display: none;
+	animation: 0.5s ease-in-out fadeRight;
+}
+.hide11:hover .hide1{
+	display: block;
+	animation: 0.5s ease-in-out fadeRight;
+	 
+}
+.hide22:hover .hide2{
+	display: block;
+	animation: 0.5s ease-in-out fadeRight;
+	 
+}
+.hide33:hover .hide3{
+	display: block;
+	animation: 0.5s ease-in-out fadeRight;
+	 
+}
+.hide44:hover .hide4{
+	display: block;
+	animation: 0.5s ease-in-out fadeRight;
+	 
+}
+.hide55:hover .hide5{
+	display: block;
+	animation: 0.5s ease-in-out fadeRight;
+	 
+}
+.container-footer{
+}

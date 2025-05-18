@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from demo.tailadmin.com/ by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 07 Oct 2024 17:53:07 GMT -->
+<!-- Added by HTTrack -->
+<meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+        Citizen Link
+    </title>
+    <link rel="icon" href="../../assets/images/favicon.png">
+    <link href="../../assets/src/style.css" rel="stylesheet">
+    <script src="../../assets/src/tailwind.js"></script>
+    <script nonce="ec9cd9f6-0a24-4404-90ff-d7d0e13fe1e6">
+        try {
+            (function (w, d) {
+                ! function (j, k, l, m) {
+                    if (j.zaraz) console.error("zaraz is loaded twice");
+                    else {
+                        j[l] = j[l] || {};
+                        j[l].executed = [];
+                        j.zaraz = {
+                            deferred: [],
+                            listeners: []
+                        };
+                        j.zaraz._v = "5808";
+                        j.zaraz._n = "ec9cd9f6-0a24-4404-90ff-d7d0e13fe1e6";
+                        j.zaraz.q = [];
+                        j.zaraz._f = function (n) {
+                            return async function () {
+                                var o = Array.prototype.slice.call(arguments);
+                                j.zaraz.q.push({
+                                    m: n,
+                                    a: o
+                                })
+                            }
+                        };
+                        for (const p of ["track", "set", "debug"]) j.zaraz[p] = j.zaraz._f(p);
+                        j.zaraz.init = () => {
+                            var q = k.getElementsByTagName(m)[0],
+                                r = k.createElement(m),
+                                s = k.getElementsByTagName("title")[0];
+                            s && (j[l].t = k.getElementsByTagName("title")[0].text);
+                            j[l].x = Math.random();
+                            j[l].w = j.screen.width;
+                            j[l].h = j.screen.height;
+                            j[l].j = j.innerHeight;
+                            j[l].e = j.innerWidth;
+                            j[l].l = j.location.href;
+                            j[l].r = k.referrer;
+                            j[l].k = j.screen.colorDepth;
+                            j[l].n = k.characterSet;
+                            j[l].o = (new Date).getTimezoneOffset();
+                            if (j.dataLayer)
+                                for (const t of Object.entries(Object.entries(dataLayer).reduce(((u, v) => ({
+                                    ...u[1],
+                                    ...v[1]
+                                })), {}))) zaraz.set(t[0], t[1], {
+                                    scope: "page"
+                                });
+                            j[l].q = [];
+                            for (; j.zaraz.q.length;) {
+                                const w = j.zaraz.q.shift();
+                                j[l].q.push(w)
+                            }
+                            r.defer = !0;
+                            for (const x of [localStorage, sessionStorage]) Object.keys(x || {}).filter((z => z.startsWith("_zaraz_"))).forEach((y => {
+                                try {
+                                    j[l]["z_" + y.slice(7)] = JSON.parse(x.getItem(y))
+                                } catch {
+                                    j[l]["z_" + y.slice(7)] = x.getItem(y)
+                                }
+                            }));
+                            r.referrerPolicy = "origin";
+                            r.src = "cdn-cgi/zaraz/sd0d9.js?z=" + btoa(encodeURIComponent(JSON.stringify(j[l])));
+                            q.parentNode.insertBefore(r, q)
+                        };
+                        ["complete", "interactive"].includes(k.readyState) ? zaraz.init() : j.addEventListener("DOMContentLoaded", zaraz.init)
+                    }
+                }(w, d, "zarazData", "script");
+                window.zaraz._p = async mP => new Promise((mQ => {
+                    if (mP) {
+                        mP.e && mP.e.forEach((mR => {
+                            try {
+                                const mS = d.querySelector("script[nonce]"),
+                                    mT = mS?.nonce || mS?.getAttribute("nonce"),
+                                    mU = d.createElement("script");
+                                mT && (mU.nonce = mT);
+                                mU.innerHTML = mR;
+                                mU.onload = () => {
+                                    d.head.removeChild(mU)
+                                };
+                                d.head.appendChild(mU)
+                            } catch (mV) {
+                                console.error(`Error executing script: ${mR}\n`, mV)
+                            }
+                        }));
+                        Promise.allSettled((mP.f || []).map((mW => fetch(mW[0], mW[1]))))
+                    }
+                    mQ()
+                }));
+                zaraz._p({
+                    "e": ["(function(w,d){})(window,document)"]
+                });
+            })(window, document)
+        } catch (e) {
+            throw fetch("/cdn-cgi/zaraz/t"), e;
+        };
+
+        fetch("http://localhost:3000/cell/profile")
+        // fetch("https://citizenlink.onrender.com/cell/profile")
+            .then(response => response.json())
+            .then(data => {
+                // let data=data[0];
+                let cell = document.getElementById("cell").innerHTML = data[0].cell;
+                let sector = document.getElementById("sector").innerHTML = data[0].sector;
+            })
+
+    </script>
+</head>
+
+<body
+    x-data="{ page: 'ecommerce', 'loaded': true, 'darkMode': true, 'stickyMenu': false, 'sidebarToggle': false, 'scrollTop': false }"
+    x-init="
+         darkMode = JSON.parse(localStorage.getItem('darkMode'));
+         $watch('darkMode', value => localStorage.setItem('darkMode', JSON.stringify(value)))"
+    :class="{'dark text-bodydark bg-boxdark-2': darkMode === true}">
+    <!-- ===== Preloader Start ===== -->
+    <div x-show="loaded"
+        x-init="window.addEventListener('DOMContentLoaded', () => {setTimeout(() => loaded = false, 500)})"
+        class="fixed left-0 top-0 z-999999 flex h-screen w-screen items-center justify-center bg-white dark:bg-black">
+        <div class="h-16 w-16 animate-spin rounded-full border-4 border-solid border-primary border-t-transparent">
+        </div>
+    </div>
+
+    <!-- ===== Preloader End ===== -->
+
+    <!-- ===== Page Wrapper Start ===== -->
+    <div class="flex h-screen overflow-hidden">
+        <!-- ===== Sidebar Start ===== -->
+        <aside :class="sidebarToggle ? 'translate-x-0' : '-translate-x-full'"
+            class="absolute left-0 top-0 z-9999 flex h-screen w-72.5 flex-col overflow-y-hidden bg-black duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0"
+            @click.outside="sidebarToggle = false">
+            <!-- SIDEBAR HEADER -->
+            <div class="flex items-center justify-between gap-2 px-6 py-5.5 lg:py-6.5">
+                <a class=" text-xl font-bold " href="/pages/admins/index">
+                    CitizenLink
+                    <!-- <img class=" w-32" src=../"{{asset(path:'../../assets/images/favicon.png')}}" alt="Logo" /> -->
+                </a>
+
+                <button class="block lg:hidden" @click.stop="sidebarToggle = !sidebarToggle">
+                    <svg class="fill-current" width="20" height="18" viewBox="0 0 20 18" fill="none"
+                        xmlns="http://www.w3.org/2000/svg">
+                        <path
+                            d="M19 8.175H2.98748L9.36248 1.6875C9.69998 1.35 9.69998 0.825 9.36248 0.4875C9.02498 0.15 8.49998 0.15 8.16248 0.4875L0.399976 8.3625C0.0624756 8.7 0.0624756 9.225 0.399976 9.5625L8.16248 17.4375C8.31248 17.5875 8.53748 17.7 8.76248 17.7C8.98748 17.7 9.17498 17.625 9.36248 17.475C9.69998 17.1375 9.69998 16.6125 9.36248 16.275L3.02498 9.8625H19C19.45 9.8625 19.825 9.4875 19.825 9.0375C19.825 8.55 19.45 8.175 19 8.175Z"
+                            fill="" />
+                    </svg>
+                </button>
+            </div>
+            <!-- SIDEBAR HEADER -->
+
+            <div class="no-scrollbar flex flex-col overflow-y-auto duration-300 ease-linear">
+                <!-- Sidebar Menu -->
+                <%-include('nav.ejs') %>
+                    <!-- Sidebar Menu -->
+
+                    <!-- Promo Box -->
+
+                    <!-- Promo Box -->
+            </div>
+        </aside>
+
+        <!-- ===== Sidebar End ===== -->
+
+        <!-- ===== Content Area Start ===== -->
+        <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
+            <!-- ===== Header Start ===== -->
+            <%-include('header.ejs')%>
+                <!-- ===== Header End ===== -->
+
+                <!-- ===== Main Content Start ===== -->
+                <main>
+
+
+                    <% if(result.length>0)
+                    { result.forEach(data=> {
+                        %>
+
+                        <div class="mx-auto max-w-screen-2xl p-4 md:p-6 2xl:p-10">
+
+                            <p onclick="history.back()"
+                                            class="mt-2 inline-flex items-center gap-2 rounded-md bg-blue-600 mb-5  px-6 py-3  font-medium text-white hover:bg-opacity-90">
+                                            <svg class="fill-current" width="16" height="14" viewBox="0 0 16 14"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M14.7492 6.38125H2.73984L7.52109 1.51562C7.77422 1.2625 7.77422 0.86875 7.52109 0.615625C7.26797 0.3625 6.87422 0.3625 6.62109 0.615625L0.799219 6.52187C0.546094 6.775 0.546094 7.16875 0.799219 7.42188L6.62109 13.3281C6.73359 13.4406 6.90234 13.525 7.07109 13.525C7.23984 13.525 7.38047 13.4687 7.52109 13.3562C7.77422 13.1031 7.77422 12.7094 7.52109 12.4563L2.76797 7.64687H14.7492C15.0867 7.64687 15.368 7.36562 15.368 7.02812C15.368 6.6625 15.0867 6.38125 14.7492 6.38125Z"
+                                                    fill="" />
+                                            </svg>
+                                            <span onclick="history.back()">Back to case</span>
+                                        </p>
+                            <div
+                                                class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                                                <h2 class="text-title-md2 font-bold text-black dark:text-slate-400">
+                                                    Problem of <%=data.citizen_name%>
+                                                </h2>
+
+                                            </div>
+
+
+                            <div class="mb-6 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                            </div>
+
+                            <div
+                                class="rounded-sm border border-stroke bg-white shadow-default dark:border-strokedark dark:bg-boxdark">
+
+
+                                <div class="flex flex-col gap-7.5 p-4 sm:p-6 xl:p-9">
+                                    <div>
+                                     
+
+
+                                        <div>
+                                                        <h3
+                                                            class="mb-5 text-title-md2 font-bold text-black dark:text-slate-400">
+                                                            <%=data.problem_title %>
+                                                        </h3>
+
+                                                        <p class="font-medium text-xl">
+                                                            <%=data.solve_description %>
+
+                                                        </p>
+                                                    </div>
+
+                                    </div>
+
+                                    <div>
+                                    </div>
+
+                                    <div>
+
+                                    </div>
+
+                                    <% if(data.solve_attachment){ %>
+
+                                        <div>
+                                            <h4
+                                                class="mb-5 text-title-sm2 font-bold leading-[30px] text-black dark:text-slate-400">
+                                                Attachments
+                                            </h4>
+
+                                            <ul class="flex flex-col gap-2.5">
+                                                <li class="font-medium text-primary underline">
+                                                    <p
+                                                        class="bg-slate-500 p-2 flex w-96 justify-center items-center text-center rounded-lg shadow-2xl ">
+
+                                                        <svg width="33px" height="33px" viewBox="-4.8 -4.8 57.60 57.60"
+                                                            xmlns="http://www.w3.org/2000/svg" fill="#000000">
+
+                                                            <g id="SVGRepo_bgCarrier" stroke-width="0" />
+
+                                                            <g id="SVGRepo_tracerCarrier" stroke-linecap="round"
+                                                                stroke-linejoin="round" />
+
+                                                            <g id="SVGRepo_iconCarrier">
+
+                                                                <defs>
+
+                                                                    <style>
+                                                                        .a {
+                                                                            fill: none;
+                                                                            stroke: #fffafa;
+                                                                            stroke-linecap: round;
+                                                                            stroke-linejoin: round;
+                                                                        }
+                                                                    </style>
+
+                                                                </defs>
+
+                                                                <path class="a"
+                                                                    d="M14,4.5H10.5a2,2,0,0,0-2,2v35a2,2,0,0,0,2,2h27a2,2,0,0,0,2-2V6.5a2,2,0,0,0-2-2H24" />
+
+                                                                <path class="a"
+                                                                    d="M12,4.5l1.4142-1.4142A2,2,0,0,1,14.8284,2.5H23a1,1,0,0,1,1,1v25l-5-5-5,5V4.5" />
+
+                                                                <line class="a" x1="14" y1="38" x2="34" y2="38" />
+
+                                                                <line class="a" x1="24" y1="10" x2="34" y2="10" />
+
+                                                                <line class="a" x1="24" y1="17" x2="34" y2="17" />
+
+                                                                <line class="a" x1="24" y1="24" x2="34" y2="24" />
+
+                                                                <line class="a" x1="14" y1="31" x2="34" y2="31" />
+
+                                                            </g>
+
+                                                        </svg>
+                                                        <a href="#"
+                                                            class="  text-white no-underline rounded-md pl-2 pr-2"
+                                                            onclick="document.getElementById('pdfViewer').src='/docs/<%= encodeURIComponent(data.solve_attachment) %>';">
+                                                            <%=data.solve_attachment%>
+                                                        </a>
+                                                    </p>
+
+                                                </li>
+                                            </ul>
+                                            <div class="pdf-container mt-5">
+                                                <iframe id="pdfViewer" src="" width="100%" height="600px"
+                                                    style="border: none;">
+                                                </iframe>
+                                            </div>
+                                        </div>
+                                        <% }else{} %>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <% }) }else{
+
+                       %>
+
+                       <div class=" ml-10 mt-5">
+                        <p onclick="history.back()"
+                                            class="mt-2 inline-flex items-center gap-2 rounded-md bg-blue-600 mb-5  px-6 py-3  font-medium text-white hover:bg-opacity-90">
+                                            <svg class="fill-current" width="16" height="14" viewBox="0 0 16 14"
+                                                fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                <path
+                                                    d="M14.7492 6.38125H2.73984L7.52109 1.51562C7.77422 1.2625 7.77422 0.86875 7.52109 0.615625C7.26797 0.3625 6.87422 0.3625 6.62109 0.615625L0.799219 6.52187C0.546094 6.775 0.546094 7.16875 0.799219 7.42188L6.62109 13.3281C6.73359 13.4406 6.90234 13.525 7.07109 13.525C7.23984 13.525 7.38047 13.4687 7.52109 13.3562C7.77422 13.1031 7.77422 12.7094 7.52109 12.4563L2.76797 7.64687H14.7492C15.0867 7.64687 15.368 7.36562 15.368 7.02812C15.368 6.6625 15.0867 6.38125 14.7492 6.38125Z"
+                                                    fill="" />
+                                            </svg>
+                                            <span onclick="history.back()">Back to case</span>
+                                        </p>
+                        </div>
+
+                       <!-- Alerts Item -->
+                 <div
+                 class="flex w-full border-l-6 border-[#F87171] bg-[#F87171] bg-opacity-[15%] px-7 py-8 shadow-md  dark:bg-opacity-30 md:p-9"
+               >
+                 <div
+                   class="mr-5 flex h-9 w-full max-w-[36px] items-center justify-center rounded-lg bg-[#F87171]"
+                 >
+                   <svg
+                     width="13"
+                     height="13"
+                     viewBox="0 0 13 13"
+                     fill="none"
+                     xmlns="http://www.w3.org/2000/svg"
+                   >
+                     <path
+                       d="M6.4917 7.65579L11.106 12.2645C11.2545 12.4128 11.4715 12.5 11.6738 12.5C11.8762 12.5 12.0931 12.4128 12.2416 12.2645C12.5621 11.9445 12.5623 11.4317 12.2423 11.1114C12.2422 11.1113 12.2422 11.1113 12.2422 11.1113C12.242 11.1111 12.2418 11.1109 12.2416 11.1107L7.64539 6.50351L12.2589 1.91221L12.2595 1.91158C12.5802 1.59132 12.5802 1.07805 12.2595 0.757793C11.9393 0.437994 11.4268 0.437869 11.1064 0.757418C11.1063 0.757543 11.1062 0.757668 11.106 0.757793L6.49234 5.34931L1.89459 0.740581L1.89396 0.739942C1.57364 0.420019 1.0608 0.420019 0.740487 0.739944C0.42005 1.05999 0.419837 1.57279 0.73985 1.89309L6.4917 7.65579ZM6.4917 7.65579L1.89459 12.2639L1.89395 12.2645C1.74546 12.4128 1.52854 12.5 1.32616 12.5C1.12377 12.5 0.906853 12.4128 0.758361 12.2645L1.1117 11.9108L0.758358 12.2645C0.437984 11.9445 0.437708 11.4319 0.757539 11.1116C0.757812 11.1113 0.758086 11.111 0.75836 11.1107L5.33864 6.50287L0.740487 1.89373L6.4917 7.65579Z"
+                       fill="#ffffff"
+                       stroke="#ffffff"
+                     ></path>
+                   </svg>
+                 </div>
+                 <div class="w-full">
+                   <h5 class="mb-3 font-bold text-[#B45454]">
+
+                    This case is pending and has not yet been resolved.
+                                    </h5>
+                    
+                 </div>
+               </div>
+
+                       <%
+                    }
+                       %>
+                </main>
+ 
+
+
+        </div>
+        <!-- ===== Content Area End ===== -->
+    </div>
+    <!-- ===== Page Wrapper End ===== -->
+
+
+
+    <script defer src="../../assets/src/bundle.js"></script>
+    <script defer src="../../assets/src/static.js"></script>
+
+    </script>
+</body>
+
+
+</html>

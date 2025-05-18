@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Complaint Detail</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/feather-icons/4.28.0/feather.min.js"></script>
+    <style>
+        .feather {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.125em;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+
+    <div class=" bg-blue-700">
+        <%- include('nav') %>
+
+    </div>
+
+  
+    <div class="container mx-auto px-4 py-8 max-w-7xl">
+        <div class="space-y-6">
+            <div class="flex items-center">
+              <form action="/complaints" method="post">
+                <div>
+                  <div class="flex rounded-lg">
+                    <span class="px-4 inline-flex items-center rounded-s-md border border-e-0">Search Ticket sent to your email</span>
+                    <input required name="ticket" type="text" class="py-2.5 sm:py-3 px-4 pe-11 block w-full rounded-e-lg sm:text-sm focus:z-10 focus:border-blue-500 focus:ring-blue-500 text-xl border-2 border-blue-800 rounded-xl" placeholder="Search..." />
+                    <button class="inset-y-0 right-0 flex items-center pr-3 border border-l-0 rounded-e-lg rounded-md ml-2 bg-blue-800 text-white px-4 py-2.5 text-sm font-medium" type="submit">
+                      Search
+                    </button>
+                  </div>
+                </div>
+              </form>
+            </div>
+            
+            <% if (result && result.length > 0) { %>
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="bg-white shadow rounded-lg">
+                        <div class="px-6 py-4 border-b flex items-start justify-between">
+                            <div>
+                                <h2 class="text-xl font-semibold text-gray-800"><%= result[0].problem_title %></h2>
+                                <div class="mt-2 flex flex-wrap items-center gap-2">
+                                    <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium <%= result[0].status === 'Pending' ? 'bg-yellow-100 text-yellow-800' : 'bg-green-100 text-green-800' %>">
+                                        <%= result[0].status %>
+                                    </span>
+                                </div>
+                            </div>
+                             
+                        </div>
+                        
+                        <div class="px-6 py-4">
+                            <div class="space-y-4">
+                                <p class="text-gray-700 whitespace-pre-line"><%= result[0].problem_description %></p>
+                                
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 pt-4 border-t">
+                                    <div class="flex items-center">
+                                         <div>
+                                            <p class="text-sm text-gray-500">Submitted</p>
+                                            <p class="text-sm font-medium"><%= result[0].recordedDate %></p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center">
+                                        <i data-feather="map-pin" class="h-5 w-5 text-gray-400 mr-2"></i>
+                                        <div>
+                                            <p class="text-sm text-gray-500">Location</p>
+                                            <p class="text-sm font-medium"><%= result[0].province %>, <%= result[0].district %>, <%= result[0].sector %>, <%= result[0].cell %>, <%= result[0].village %></p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center">
+                                        <i data-feather="tag" class="h-5 w-5 text-gray-400 mr-2"></i>
+                                        <div>
+                                            <p class="text-sm text-gray-500">Category</p>
+                                            <p class="text-sm font-medium flex items-center">
+                                                <% if(result[0].problem_category === 'Land') { %>
+                                                 <% } else if(result[0].problem_category === 'Water') { %>
+                                                 <% } else if(result[0].problem_category === 'Electricity') { %>
+                                                 <% } else { %>
+                                                 <% } %>
+                                                <span><%= result[0].problem_category %></span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="flex items-center">
+                                        <i data-feather="user" class="h-5 w-5 text-gray-400 mr-2"></i>
+                                        <div>
+                                            <p class="text-sm text-gray-500">Citizen</p>
+                                            <p class="text-sm font-medium"><%= result[0].citizen_name %></p>
+                                            <p class="text-sm text-gray-500"><%= result[0].citizen_email %></p>
+                                            <p class="text-sm text-gray-500"><%= result[0].citizen_number %></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <% if(result[0].attachment) { %>
+                                <div class="pt-4 border-t">
+                                    <h3 class="text-sm font-medium text-gray-700 mb-2">Attachments</h3>
+                                    <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2">
+                                        <a
+                                            href="#"
+                                            target="_blank"
+                                            class="block border rounded p-2 hover:bg-gray-50"
+                                        >
+                                            <div class="bg-gray-100 h-20 flex items-center justify-center rounded">
+                                                <svg class="h-8 w-8 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                                </svg>
+                                            </div>
+                                            <p class="text-xs text-center mt-1 truncate"><%= result[0].attachment %></p>
+                                        </a>
+                                    </div>
+                                </div>
+                                <% } %>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="space-y-4">
+                      
+                        
+                        <div class="space-y-4" id="responses-container">
+                            <!-- Responses will be added here dynamically -->
+                        </div>
+                        
+                        <div class="bg-white shadow rounded-lg">
+                            <div class="px-6 py-4 border-b">
+                                <h3 class="text-lg font-medium flex items-center">
+                                     Leader feadback
+                                </h3>
+                            </div>
+                            
+                            <p class=" p-12"><%= result[0].solve_description %></div>
+                    </div>
+                </div>
+                
+                <div class="lg:col-span-1 space-y-6">
+                    <div class="bg-white shadow rounded-lg">
+                        <div class="px-6 py-4 border-b">
+                            <h3 class="text-lg font-medium">Ticket Information</h3>
+                        </div>
+                        <div class="px-6 py-4">
+                            <div class="space-y-3">
+                                <div class="flex items-center justify-between">
+                                    <p class="text-sm text-gray-500">Ticket Number</p>
+                                    <p class="text-sm font-medium"><%= result[0].ticket %></p>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <p class="text-sm text-gray-500">Status</p>
+                                    <p class="text-sm font-medium"><%= result[0].status %></p>
+                                </div>
+                                <div class="flex items-center justify-between">
+                                    <p class="text-sm text-gray-500">Submitted</p>
+                                    <p class="text-sm font-medium"><%= result[0].recordedDate %></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
+            <% } else { %>
+            <div class="bg-white shadow rounded-lg p-6 text-center">
+                <div class="text-3xl text-gray-400 mb-4">
+                    <i data-feather="search" class="mx-auto h-12 w-12"></i>
+                </div>
+                <h3 class="text-lg font-medium text-gray-800 mb-1">No complaint found</h3>
+                <p class="text-gray-600">Please enter a valid ticket number to find your complaint</p>
+            </div>
+            <% } %>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Feather Icons
+        document.addEventListener('DOMContentLoaded', function() {
+            feather.replace();
+            
+            // Form submission handler
+            document.getElementById('responseForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const responseText = document.getElementById('newResponse').value;
+                if (!responseText.trim()) return;
+                
+                // Create new response element (simulating a real submission)
+                const responsesContainer = document.getElementById('responses-container');
+                const newResponseElement = document.createElement('div');
+                newResponseElement.className = 'bg-white shadow rounded-lg';
+                newResponseElement.innerHTML = `
+                    <div class="px-6 py-4">
+                        <div class="flex items-start justify-between">
+                            <div class="flex items-center">
+                                <div class="h-10 w-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-700 font-medium">
+                                    A
+                                </div>
+                                <div class="ml-3">
+                                    <p class="font-medium">Admin User</p>
+                                    <p class="text-sm text-gray-500">Administrator</p>
+                                </div>
+                            </div>
+                            <div class="text-sm text-gray-500">
+                                Just now
+                            </div>
+                        </div>
+                        <div class="mt-4 text-gray-700 whitespace-pre-line">
+                            ${responseText}
+                        </div>
+                    </div>
+                `;
+                
+                // Add to the DOM
+                responsesContainer.appendChild(newResponseElement);
+                
+                // Clear the form
+                document.getElementById('newResponse').value = '';
+                
+                // Update the response count
+                const responseCount = document.querySelectorAll('#responses-container > div.bg-white').length;
+                document.querySelector('h3.text-lg.font-medium.text-gray-800').innerHTML = `
+                    Responses (${responseCount})
+                `;
+                
+                // Add a new timeline entry
+                const timelineContainer = document.querySelector('.relative');
+                const newTimelineEntry = document.createElement('div');
+                newTimelineEntry.className = 'relative flex items-start mb-4';
+                newTimelineEntry.innerHTML = `
+                    <div class="h-3 w-3 rounded-full bg-green-500 mt-1.5 mr-3"></div>
+                    <div>
+                        <p class="font-medium">Response Added</p>
+                        <p class="text-sm text-gray-500">${new Date().toLocaleString()}</p>
+                    </div>
+                `;
+                
+                timelineContainer.appendChild(newTimelineEntry);
+            });
+        });
+    </script>
+</body>
+</html>
