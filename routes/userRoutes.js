@@ -907,7 +907,7 @@ app.post("/cell/solved/:id", isAuthenticated, (req, res) => {
       res.render("cell/singlecase", {
         result: caseResult,
         content: "",
-        contents: "Case marked as solved.",
+        contents: "Complaint solved and feedback sent to citizen.",
         solve_result: ""
       });
 
