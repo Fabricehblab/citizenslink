@@ -330,8 +330,8 @@ app.post("/admin/createcell", async (req, res) => {
             <img style="width: 80px;" src="https://cdn-icons-png.flaticon.com/512/5087/5087579.png" alt="">
             <h1 style="margin-top: 13px; margin-bottom: 20px; font-size: 14px;  text-align:center;">Use this credential to login as <b>${district}</b> Leader.</h1>
             <p>Please remember to change your password after login</p>
-            <p>  Username: <span style="color:blue;">${username}</span>.</p>
-            <p style="margin-bottom: 30px; ">Password: <span style="color:blue;">${password}</span>.</p>
+            <p>  Username: <span style="color:blue;">${username}</span></p>
+            <p style="margin-bottom: 30px; ">Password: <span style="color:blue;">${password}</span></p>
              <button style="background-color: #1E3A8A; padding: 8px 20px; width: 208px; color: white; text-decoration: none; border-radius: 15px; font-size: 18px; display: inline-block; margin-bottom: 80px;">
                 <a href="https://citizenlink.onrender.com/login" style="color: white; text-decoration: none; border:none;">Join Now</a>
             </button>
