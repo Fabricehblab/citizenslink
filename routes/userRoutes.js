@@ -1154,7 +1154,7 @@ const ticket = Math.floor(100 + Math.random() * 900);
       if (error) throw error;
       res.render("citizen/problem_report", {
         contents: "",
-        content: `Case of ${citizen_name} sent  to ${cell} cell.`
+        content: `Complaint of ${citizen_name} sent  to ${cell} cell check this email ${citizen_email} to get ticket code.`
       });
            
     const transporter = nodemailer.createTransport({
